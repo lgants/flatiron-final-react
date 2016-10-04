@@ -82,5 +82,17 @@
   },
   "eslintConfig": {
     "extends": "react-app"
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lgants/flatiron-final-react.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lgants/flatiron-final-react/issues"
+  },
+  "homepage": "https://github.com/lgants/flatiron-final-react#readme"
 }
