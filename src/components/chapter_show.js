@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux'
 
-export default function ChapterShow(props){
+const ChapterShow = function(props){
+  debugger;
   return (
     <div className='col-md-6' >
         This is the chapter show!
-
-        {props.children}
     </div>
   )
 }
+
+function mapStateToProps(state, ownProps) {
+  // debugger;
+}
+
+export default connect(mapStateToProps)(ChapterShow)
