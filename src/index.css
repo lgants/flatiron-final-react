@@ -9,3 +9,31 @@ form {
   width: 50%;
   text-align: center;
 }
+
+
+/*book list container div*/
+#book-list-container {
+  height: 500px;
+}
+
+/*book list container div*/
+#book-show-container {
+  height: 500px;
+}
+
+/*added to support book scroll*/
+#book-scroll-list-group {
+  overflow-y: scroll;
+  height: 370px;
+  width: 100%;
+  position: relative;
+}
+
+/*added to support chapter scroll*/
+#chapter-scroll-list-group {
+  overflow-y: scroll;
+  max-height: 150px;
+  width: 100%;
+  position: relative;
+  padding: 0px;
+}
