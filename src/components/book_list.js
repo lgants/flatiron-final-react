@@ -8,9 +8,7 @@ function BookList(props){
     <div className="col-lg-4 col-md-4 col-sm-4">
       <div id="book-list-container" className="panel panel-default">
         <div className="panel-body">
-          <button role="button" className="btn btn-default btn-block" type="button">
-            <Link to="/books/new">Add a book :)</Link>
-          </button>
+            <Link to="/books/new" className="btn btn-default btn-block">Add a book :)</Link>
           <br />
           <div className="panel panel-default">
             <div className="panel-heading">Books</div>
