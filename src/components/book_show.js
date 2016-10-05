@@ -7,18 +7,17 @@ function BookShow(props){
     <div className='col-sm-8 col-md-8 col-lg-8' >
       <div id="book-show-container" className="panel panel-default">
         <div className="panel-body">
-          <h2>Book Title</h2>
-          <Link to={`/books/${props.book.id}/chapters`}>{props.book.title}</Link>
-          <h4>Book Description</h4>
+          <h2>{props.book.title}</h2>
+          <h4>{props.book.description}</h4>
           <br />
           <div className="panel panel-default">
             <div className="panel-heading">Books</div>
             <ul id="chapter-scroll-list-group" className="list-group">
               {props.book.chapters.map((chapter) =>
-                <li className="list-group-item">
+                <Link to={`/books/${props.book.id}/chapters/${chapter.id}`}><li className="list-group-item">
                   <h4 className="list-group-item-heading">{chapter.title}</h4>
                   <p className="list-group-item-text">...</p>
-                </li>
+                </li></Link>
               )}
             </ul>
           </div>
