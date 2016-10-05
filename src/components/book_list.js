@@ -6,6 +6,7 @@ function BookList(props){
   return (
     <div className='col-md-4'>
       <ul>
+        <Link to="/books/new">Add a book :)</Link>
         {props.books.map(book => <Link to={`/books/${book.id}`}><li key={book.id}>{book.title}</li></Link>)}
       </ul>
     </div>
@@ -17,7 +18,6 @@ function mapStateToProps(state){
     books: state.books
   }
 }
-
 
 const componentCreator = connect(mapStateToProps)
 export default componentCreator(BookList);

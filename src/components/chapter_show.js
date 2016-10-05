@@ -13,6 +13,7 @@ const ChapterShow = function(props){
 
 // how to find chapter from ownProps!
 function mapStateToProps(state, ownProps) {
+  debugger
   if (state.books.length > 0) {
     const chapter = ownProps.book.chapters.find((chapter) => {return chapter.id === ownProps.params.chapterId})
     return {chapter: chapter};
