@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import * as actions from '../actions/book_actions'
+import * as actions from '../actions/chapter_actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
 
@@ -11,7 +11,7 @@ class ChapterNew extends React.Component {
 
   newChapterHandler(event) {
     event.preventDefault()
-    const newChapter = {title: this.refs.title.value, description: this.refs.description.value}
+    const newChapter = {title: this.refs.title.value, description: this.refs.description.value }
     this.props.actions.addChapter(newChapter)
   }
 
