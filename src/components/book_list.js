@@ -2,12 +2,22 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { Link } from 'react-router';
 
+
 function BookList(props){
   return (
-    <div className='col-md-4'>
-      <ul>
+    <div className="col-md-4">
+      <button role="button" className="btn btn-secondary btn-block" type="button">
         <Link to="/books/new">Add a book :)</Link>
-        {props.books.map(book => <Link to={`/books/${book.id}`}><li key={book.id}>{book.title}</li></Link>)}
+      </button>
+      <ul className="list-group">
+        {props.books.map(book =>
+          <li className="list-group-item" key={book.id}>
+          <Link to={`/books/${book.id}`}>
+          {book.title}
+          </Link>
+          </li>
+
+        )}
       </ul>
     </div>
   )
