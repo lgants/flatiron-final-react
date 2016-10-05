@@ -5,6 +5,7 @@ import BookContainer from './components/book_container'
 import BookNew from './components/book_new'
 import BookShow from './components/book_show'
 import ChapterContainer from './components/chapter_container'
+import ChapterNew from './components/chapter_new'
 import ChapterShow from './components/chapter_show'
 
 import App from './components/app';
@@ -16,6 +17,7 @@ export default (
       <Route path="/books/:id" component={BookShow}/>
     </Route>
     <Route path="/books/:id/chapters" component={ChapterContainer} >
+      <Route path="/chapters/new" component={ ChapterNew } />
       <Route path="/books/:id/chapters/:id" component={ChapterShow} />
     </Route>
 
