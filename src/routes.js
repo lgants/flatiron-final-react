@@ -9,7 +9,6 @@ import ChapterNew from './components/chapter_new'
 import ChapterShow from './components/chapter_show'
 import SnippetNew from './components/snippet_new'
 
-
 import App from './components/app';
 
 export default (
@@ -23,5 +22,5 @@ export default (
       <Route path=":chapterId" component={ChapterShow} />
       <Route path=":chapterId/snippets/new" component={SnippetNew} />
     </Route>
-    </Route>
+  </Route>
 )
