@@ -10,7 +10,6 @@ class BookNew extends React.Component {
   }
 
   newBookHandler(event) {
-    debugger
     event.preventDefault()
     // how to associate the currentUser to author
     // currentUser?

@@ -1,27 +1,25 @@
 import React from 'react';
+import SnippetList from './snippet_list'
 import {connect} from 'react-redux';
-import ChapterList from './chapter_list'
-import ChapterShow from './chapter_show'
 
 
 
-
-class ChapterContainer extends React.Component{
-
+class SnippetContainer extends React.Component{
 
   render(){
     const childrenWithProps = React.Children.map(this.props.children,
  (child) => React.cloneElement(child, {
-   book: this.props.book
+   book: this.props.book,
+   chapter: this.props.chapter
     })
   );
 
     return (
       <div className='col-md-12'>
-          <ChapterList book={this.props.book} />
+          <SnippetList book={this.props.book} chapter={this.props.chapter} />
           <div>{childrenWithProps}</div>
       </div>
-    );
+    )
   }
 }
 
@@ -29,7 +27,11 @@ class ChapterContainer extends React.Component{
   function mapStateToProps(state, ownProps) {
    if (state.books.length > 0) {
      const book = state.books.find((book) => {return book.id == ownProps.params.bookId})
-     return {book: book}
+     const chapter = book.find((chapter) => {return chapter.id == ownProps.params.chapterId})
+     return {
+       book: book,
+       chapter: chapter
+     }
    } else {
      return {book: {title: '', genre: '', description: '', users: '', chapters: [{id: '', title: '', description: '', snippets: [{content: '', approved: false}]}]}}
    }
@@ -37,4 +39,4 @@ class ChapterContainer extends React.Component{
 
 
 const componentCreator = connect(mapStateToProps)
-export default componentCreator(ChapterContainer);
+export default componentCreator(SnippetContainer);
