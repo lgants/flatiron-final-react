@@ -16,7 +16,7 @@ const ChapterContainer = function(props){
 function mapStateToProps(state, ownProps) {
   debugger;
  if (state.books.length > 0) {
-   const book = state.books.find((book) => {return book.id == ownProps.params.id[0]})
+   const book = state.books.find((book) => {return book.id == ownProps.params.bookId})
    debugger;
    return {book: book}
  } else {

@@ -13,7 +13,6 @@ function BookList(props){
 }
 
 function mapStateToProps(state){
-  debugger
   return {
     books: state.books
   }
