@@ -1,29 +1,26 @@
 import React, { Component } from 'react';
-import * as actions from '../actions/book_actions'
+import * as actions from '../actions/chapter_actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
 
-class BookNew extends React.Component {
+class ChapterNew extends React.Component {
   constructor(props) {
     super(props)
-    this.newBookHandler = this.newBookHandler.bind(this)
+    this.newChapterHandler = this.newChapterHandler.bind(this)
   }
 
-  newBookHandler(event) {
+  newChapterHandler(event) {
     event.preventDefault()
-    // how to associate the currentUser to author
-    // currentUser?
-    const newBook = {title: this.refs.title.value, genre: this.refs.genre.value, description: this.refs.description.value}
-    this.props.actions.addBook(newBook)
+    const newChapter = {title: this.refs.title.value, description: this.refs.description.value, book_id: this.props.book.id }
+    this.props.actions.addChapter(newChapter)
   }
 
   render() {
     return (
       <div>
-        <form onSubmit={this.newBookHandler}>
-          <h2>What's Your Book?</h2>
+        <form onSubmit={this.newChapterHandler}>
+          <h2>What's Your Chapter?</h2>
           <input placeholder="title" ref='title' /><br/>
-          <input placeholder="genre" ref='genre' /><br/>
           <input placeholder="description" ref='description' /><br/>
 
           <button type="submit" class="btn btn-default">Submit</button>
@@ -38,4 +35,4 @@ function mapDispatchToProps(dispatch) {
 }
 
 const componentCreator = connect(null, mapDispatchToProps)
-export default componentCreator(BookNew);
+export default componentCreator(ChapterNew);

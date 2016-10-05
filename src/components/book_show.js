@@ -30,7 +30,7 @@ function BookShow(props){
 
 function mapStateToProps(state, ownProps) {
   if (state.books.length > 0) {
-    const book = state.books.find((book) => {return book.id == ownProps.params.id})
+    const book = state.books.find((book) => {return book.id == ownProps.params.bookId})
     return {book: book}
   } else {
     return {book: {title: '', description: '', chapters: [{title: ''}]}}

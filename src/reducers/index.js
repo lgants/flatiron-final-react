@@ -1,11 +1,10 @@
 import { combineReducers } from 'redux';
 import booksReducer from './books_reducer';
-
+import chaptersReducer from './chapters_reducer'
 
 const rootReducer =  combineReducers({
   books: booksReducer,
+  chapters: chaptersReducer,
 });
-
-// {cats: whatever gets returned by cats reducer, dogs: whatever gets returned by dog reducer}
 
 export default rootReducer;
