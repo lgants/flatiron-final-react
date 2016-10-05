@@ -6,7 +6,6 @@ export default function booksReducer(state=[], action) {
       return [...state, action.payload]
     case 'ADD_CHAPTER':
       const book = state.find((book) => book.id == action.payload.book_id)
-      // remove book from copy state
       const copyState = [...state]
       const index = copyState.indexOf(book)
       copyState.splice(index, 1);

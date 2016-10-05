@@ -16,7 +16,8 @@ export function addChapter(newChapterFromForm) {
   return {type: 'ADD_CHAPTER', payload: newChapterFromApi}
 }
 
-export function addSnippet(newSnippetFromForm){
+export function addSnippet(newSnippetFromForm, bookId){
+  debugger
   const newSnippetFromAPI = fetch('http://localhost:3000/api/v1/snippets', {
     method: 'POST',
     headers: {
@@ -30,6 +31,5 @@ export function addSnippet(newSnippetFromForm){
     debugger
     return newSnippetPayload
   })
-
-  return {type: 'ADD_SNIPPET', payload: newSnippetFromAPI}
+  return {type: 'ADD_SNIPPET', payload: newSnippetFromAPI, bookId: bookId }
 }

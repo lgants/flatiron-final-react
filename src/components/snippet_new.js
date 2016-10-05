@@ -12,8 +12,9 @@ class SnippetNew extends React.Component {
   newSnippetHandler(event) {
     debugger
     event.preventDefault()
-    const newSnippet = {content: this.refs.content.value, chapter_id: this.props.routeParams.chapterId }
-    this.props.actions.addSnippet(newSnippet)
+    const newSnippet = {content: this.refs.content.value, approved: false, chapter_id: this.props.params.chapterId }
+    const bookId = this.props.params.bookId
+    this.props.actions.addSnippet(newSnippet, bookId)
   }
 
   render() {
@@ -22,7 +23,7 @@ class SnippetNew extends React.Component {
         <form onSubmit={this.newSnippetHandler}>
           <h2>What's Your Snippet?</h2>
           <input placeholder="content" ref='content' /><br/>
-          <button type="submit" class="btn btn-default">Submit</button>
+          <button type="submit" className="btn btn-default">Submit</button>
         </form>
       </div>
     )
