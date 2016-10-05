@@ -12,3 +12,21 @@ export function fetchBooks(){
   }
 
 }
+
+export function addBook(newBookFromForm) {
+  debugger
+  const newBookFromApi = fetch('http://localhost:3000/api/v1/books', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({book: newBookFromForm})
+  }).then(response => {
+    return response.json()
+  }).then(newBookPayload => {
+    return newBookPayload
+  })
+
+  return {type: 'ADD_BOOK', payload: newBookFromApi}
+}
