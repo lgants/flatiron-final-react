@@ -14,7 +14,6 @@ export function fetchChapters(){
 }
 
 export function addChapter(newChapterFromForm) {
-  debugger
   const newChapterFromApi = fetch('http://localhost:3000/api/v1/chapters', {
     method: 'POST',
     headers: {
