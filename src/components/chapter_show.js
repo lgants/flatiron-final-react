@@ -6,16 +6,18 @@ import {Link} from 'react-router';
 const ChapterShow = function(props){
   return (
     <div className='col-md-6' >
-      Chapter Show
+        {props.chapter.snippets.map((snippet) =>
+          <span>
+            {snippet.content}<br/><br/>
+          </span>)}
     </div>
   );
 };
 
-// how to find chapter from ownProps!
+
 function mapStateToProps(state, ownProps) {
-  debugger
   if (state.books.length > 0) {
-    const chapter = ownProps.book.chapters.find((chapter) => {return chapter.id === ownProps.params.chapterId})
+    const chapter = ownProps.book.chapters.find((chapter) => {return chapter.id == ownProps.params.chapterId})
     return {chapter: chapter};
   } else {
     return {chapter: {title: '', description: '', snippets: {content: '', approved: false}}}
