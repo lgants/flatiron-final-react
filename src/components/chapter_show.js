@@ -10,6 +10,7 @@ const ChapterShow = function(props){
           <span>
             {snippet.content}<br/><br/>
           </span>)}
+        <Link to={`/books/${props.book.id}/chapters/${props.chapter.id}/snippets/new`}>Add a Snippet!</Link>
     </div>
   );
 };

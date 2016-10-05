@@ -13,6 +13,8 @@ export default function booksReducer(state=[], action) {
       const copyBook = JSON.parse(JSON.stringify(book))
       copyBook.chapters.push(action.payload)
       return copyState.push(copyBook)
+    case 'ADD_SNIPPET':
+      debugger
     default:
       return state;
   }

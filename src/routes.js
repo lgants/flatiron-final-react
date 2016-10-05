@@ -7,6 +7,7 @@ import BookShow from './components/book_show'
 import ChapterContainer from './components/chapter_container'
 import ChapterNew from './components/chapter_new'
 import ChapterShow from './components/chapter_show'
+import SnippetNew from './components/snippet_new'
 
 
 import App from './components/app';
@@ -19,7 +20,8 @@ export default (
     </Route>
     <Route path="/books/:bookId/chapters" component={ChapterContainer} >
       <Route path="new" component={ ChapterNew } />
-      <Route path="/books/:bookId/chapters/:chapterId" component={ChapterShow} />
+      <Route path=":chapterId" component={ChapterShow} />
+      <Route path=":chapterId/snippets/new" component={SnippetNew} />
     </Route>
     </Route>
 )
