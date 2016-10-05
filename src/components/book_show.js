@@ -11,13 +11,15 @@ function BookShow(props){
           <h4>{props.book.description}</h4>
           <br />
           <div className="panel panel-default">
-            <div className="panel-heading">Books</div>
+            <div className="panel-heading">Chapters</div>
             <ul id="chapter-scroll-list-group" className="list-group">
               {props.book.chapters.map((chapter) =>
-                <Link to={`/books/${props.book.id}/chapters/${chapter.id}`}><li className="list-group-item">
-                  <h4 className="list-group-item-heading">{chapter.title}</h4>
-                  <p className="list-group-item-text">...</p>
-                </li></Link>
+                <li className="list-group-item">
+                  <Link to={`/books/${props.book.id}/chapters/${chapter.id}`}>
+                    <h4 className="list-group-item-heading">{chapter.title}</h4>
+                    <p className="list-group-item-text">{chapter.description.length > 120 ? `${chapter.description.slice(0, 120)}...` : `${chapter.description}`}</p>
+                  </Link>
+                </li>
               )}
             </ul>
           </div>

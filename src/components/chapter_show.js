@@ -5,14 +5,29 @@ import {Link} from 'react-router';
 
 const ChapterShow = function(props){
   return (
-    <div className='col-md-6' >
-        {props.chapter.snippets.map((snippet) =>
-          <span>
-            {snippet.content}<br/><br/>
-          </span>)}
+    <div className='col-sm-8 col-md-8 col-lg-8' >
+      <div id="book-show-container" className="panel panel-default">
+        <div className="panel-body">
+          <h2>{props.chapter.title}</h2>
+          <h4>{props.chapter.description}</h4>
+          <br />
+          <div className="panel panel-default">
+            <div className="panel-heading">Paragraphs</div>
+            <ul id="chapter-scroll-list-group" className="list-group">
+              {props.chapter.snippets.map((snippet) =>
+                <li className="list-group-item">
+                  <Link to={`/books/${props.book.id}/chapters/${props.chapter.id}/snippets/${snippet.id}`}>
+                    <h4 className="list-group-item-heading">{snippet.content}</h4>
+                  </Link>
+                </li>
+              )}
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-  );
-};
+  )
+}
 
 
 function mapStateToProps(state, ownProps) {
