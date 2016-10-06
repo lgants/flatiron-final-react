@@ -17,7 +17,7 @@ function BookList(props){
                 <li className="list-group-item" key={book.id}>
                   <Link to={`/books/${book.id}`}>
                     <h4 className="list-group-item-heading">{book.title}</h4>
-                    <p className="list-group-item-text">...</p>
+                    <p className="list-group-item-text">{book.description.length > 40 ? `${book.description.slice(0, 40)}...` : `${book.description}`}</p>
                   </Link>
                 </li>
               )}
@@ -25,10 +25,6 @@ function BookList(props){
           </div>
         </div>
       </div>
-
-
-
-
     </div>
   )
 }
