@@ -20,7 +20,7 @@ export default (
       <Route path="/books/welcome" component={ BookWelcome } />
       <Route path="/books/new" component={ BookNew } />
       <Route path="/books/:bookId" component={BookShow}/>
-      </Route>
+    </Route>
     <Route path="/books/:bookId/chapters" component={ChapterContainer} >
       <Route path="new" component={ ChapterNew } />
       <Route path=":chapterId" component={ChapterShow} />

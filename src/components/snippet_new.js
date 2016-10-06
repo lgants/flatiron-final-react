@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as actions from '../actions/chapter_actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
+import {browserHistory} from 'react-router'
 
 class SnippetNew extends React.Component {
   constructor(props) {
@@ -10,11 +11,11 @@ class SnippetNew extends React.Component {
   }
 
   newSnippetHandler(event) {
-    debugger
     event.preventDefault()
     const newSnippet = {content: this.refs.content.value, approved: false, chapter_id: this.props.params.chapterId }
     const bookId = this.props.params.bookId
-    this.props.actions.addSnippet(newSnippet, bookId)
+    this.props.actions.addSnippet(newSnippet)
+    browserHistory.push(`/books/${this.props.params.bookId}/chapters/${this.props.params.chapterId}`)
   }
 
   render() {
@@ -22,7 +23,7 @@ class SnippetNew extends React.Component {
       <div>
         <form onSubmit={this.newSnippetHandler}>
           <h2>What's Your Snippet?</h2>
-          <input placeholder="content" ref='content' /><br/>
+          <textarea placeholder="content" ref='content' /><br/>
           <button type="submit" className="btn btn-default">Submit</button>
         </form>
       </div>
