@@ -16,7 +16,7 @@ export function addChapter(newChapterFromForm) {
   return {type: 'ADD_CHAPTER', payload: newChapterFromApi}
 }
 
-export function addSnippet(newSnippetFromForm, bookId){
+export function addSnippet(newSnippetFromForm){
   const newSnippetFromAPI = fetch('http://localhost:3000/api/v1/snippets', {
     method: 'POST',
     headers: {

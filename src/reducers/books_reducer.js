@@ -20,16 +20,19 @@ export default function booksReducer(state=[], action) {
     copyBook.chapters.push(action.payload)
     return copyState.push(copyBook)
   case 'ADD_SNIPPET':
-    const snippetBook = state.find((book) => book.chapters.find((chapter) => chapter.id === action.payload.chapter_id))
-    const snippetChapter = snippetBook.chapters.find((chapter) => chapter.id === action.payload.chapter_id)
+    const snippetBook = state.find((book) => book.chapters.find((chapter) => chapter.id == action.payload.chapter_id))
     const snippetCopyState = [...state]
     const bookIndex = snippetCopyState.indexOf(snippetBook)
     snippetCopyState.splice(bookIndex, 1)
     const copySnippetBook = JSON.parse(JSON.stringify(snippetBook))
+    const snippetChapter = copySnippetBook.chapters.find((chapter) => chapter.id == action.payload.chapter_id)
     const chapterIndex = copySnippetBook.chapters.indexOf(snippetChapter)
     copySnippetBook.chapters.splice(chapterIndex, 1)
-    copySnippetBook.chapters.push(action.payload)
-    return snippetCopyState.push(copySnippetBook)
+    const copySnippetChapter = JSON.parse(JSON.stringify(snippetChapter))
+    copySnippetChapter.snippets.push(action.payload)
+    copySnippetBook.chapters.push(copySnippetChapter)
+    snippetCopyState.push(copySnippetBook)
+    return snippetCopyState
   default:
     return state;
   }
