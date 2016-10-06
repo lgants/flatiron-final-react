@@ -10,7 +10,6 @@ class SnippetNew extends React.Component {
   }
 
   newSnippetHandler(event) {
-    debugger
     event.preventDefault()
     const newSnippet = {content: this.refs.content.value, approved: false, chapter_id: this.props.params.chapterId }
     const bookId = this.props.params.bookId
