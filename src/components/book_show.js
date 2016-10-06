@@ -31,7 +31,7 @@ class BookShow extends React.Component {
                 {this.props.book.chapters.map((chapter) =>
                   <Link to={`/books/${this.props.book.id}/chapters/${chapter.id}`}><li className="list-group-item">
                     <h4 className="list-group-item-heading">{chapter.title}</h4>
-                    <p className="list-group-item-text">...</p>
+                    <p className="list-group-item-text">{chapter.description.length > 120 ? `${chapter.description.slice(0, 120)}...` : `${chapter.description}`}</p>
                   </li></Link>
                 )}
               </ul>
