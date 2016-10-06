@@ -12,7 +12,7 @@ const ChapterShow = function(props){
           <h4>{props.chapter.description}</h4>
           <br />
           <div className="panel panel-default">
-            <div className="panel-heading">Paragraphs</div>
+            <div className="panel-heading">Snippets</div>
             <ul id="chapter-scroll-list-group" className="list-group">
               {props.chapter.snippets.map((snippet) =>
                 <li className="list-group-item">
@@ -22,6 +22,7 @@ const ChapterShow = function(props){
                 </li>
               )}
             </ul>
+            <Link to={`/books/${props.book.id}/chapters/${props.chapter.id}/snippets/new`}>Add a Snippet!</Link>
           </div>
         </div>
       </div>
@@ -31,11 +32,11 @@ const ChapterShow = function(props){
 
 
 function mapStateToProps(state, ownProps) {
-  if (state.books.length > 0) {
+  if (state.books.length > 0 && ownProps.book.chapters.length > 0) {
     const chapter = ownProps.book.chapters.find((chapter) => {return chapter.id == ownProps.params.chapterId})
     return {chapter: chapter};
   } else {
-    return {chapter: {title: '', description: '', snippets: {content: '', approved: false}}}
+    return {chapter: {title: '', description: '', snippets: [{content: '', approved: false}]}}
   }
 }
 
