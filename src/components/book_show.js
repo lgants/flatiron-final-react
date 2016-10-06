@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import * as actions from '../actions/book_actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 
 class BookShow extends React.Component {
   constructor(props) {
@@ -13,6 +13,7 @@ class BookShow extends React.Component {
   deleteBookHandler(event) {
     const deleteBook = this.props.book
     this.props.actions.deleteBook(deleteBook)
+    browserHistory.push('/books')
   }
 
   render() {
@@ -22,7 +23,7 @@ class BookShow extends React.Component {
           <div className="panel-body">
             <h2>{this.props.book.title}</h2>
             <h4>{this.props.book.description}</h4>
-            <button onClick={this.deleteBookHandler}>Delete Book </button>
+            <button className="btn btn-default btn-block" onClick={this.deleteBookHandler}>Delete Book </button>
             <br />
             <br />
             <div className="panel panel-default">

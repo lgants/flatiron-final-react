@@ -8,6 +8,7 @@ export default function booksReducer(state=[], action) {
       const bookToDelete = state.find((book) => book.id == action.payload.id)
       const stateForDelete = [...state]
       const indexOfDelete = stateForDelete.indexOf(bookToDelete)
+      debugger
       stateForDelete.splice(indexOfDelete, 1);
       return stateForDelete
     case 'ADD_CHAPTER':
