@@ -1,5 +1,7 @@
 export function fetchBooks(){
-  const books = fetch('http://localhost:3000/api/v1/books').then(response => {
+  const books = fetch('http://localhost:3000/api/v1/books', {
+    headers: {"Authorization": `Bearer ${sessionStorage.jwt}`}
+  }).then(response => {
     return response.json()
   }).then(booksPayload => {
     return booksPayload

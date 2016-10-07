@@ -18,7 +18,8 @@ export default function booksReducer(state=[], action) {
     copyState.splice(index, 1);
     const copyBook = JSON.parse(JSON.stringify(book))
     copyBook.chapters.push(action.payload)
-    return copyState.push(copyBook)
+    copyState.push(copyBook)
+    return copyState
   case 'ADD_SNIPPET':
     const snippetBook = state.find((book) => book.chapters.find((chapter) => chapter.id == action.payload.chapter_id))
     const snippetCopyState = [...state]

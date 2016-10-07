@@ -31,7 +31,7 @@ class ChapterContainer extends React.Component{
      const book = state.books.find((book) => {return book.id == ownProps.params.bookId})
      return {book: book}
    } else {
-     return {book: {title: '', genre: '', description: '', users: '', chapters: [{id: '', title: '', description: '', snippets: [{content: '', approved: false}]}]}}
+     return {book: {id: '', title: '', genre: '', description: '', users: '', chapters: [{id: '', title: '', description: '', snippets: [{content: '', approved: false}]}]}}
    }
   }
 
