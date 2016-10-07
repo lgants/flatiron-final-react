@@ -21,11 +21,9 @@ class BookContainer extends React.Component {
 }
 
 function mapStateToProps(state){
-  debugger;
   if (state.books.length > 0) {
       return {books: state.books}
     } else {
-      debugger
       return {books: [{title: '', description: '', chapters: [{title: ''}]}]}
     }
 }
