@@ -5,7 +5,7 @@ export default function NavBar(props){
   return (
     <nav className='navbar navbar-inverse'>
       <div className='navbar-header'>
-        <Link to={"/books"} className='navbar-brand'> Our Story </Link>
+        <Link to={"/books"} className='navbar-brand'> Collabowrite </Link>
       </div>
       <div className="collapse navbar-collapse">
         <ul className="nav navbar-nav">
