@@ -32,11 +32,11 @@ const ChapterShow = function(props){
 
 
 function mapStateToProps(state, ownProps) {
-  if (state.books.length > 0 && ownProps.book.chapters.length > 0) {
+  if (state.books.length > 0 && ownProps.book.chapters.length > 0 && !! ownProps.book.chapters[0].id) {
     const chapter = ownProps.book.chapters.find((chapter) => {return chapter.id == ownProps.params.chapterId})
     return {chapter: chapter};
   } else {
-    return {chapter: {title: '', description: '', snippets: [{content: '', approved: false}]}}
+    return {chapter: {id: '', title: '', description: '', snippets: [{id: '', content: '', approved: false}]}}
   }
 }
 
