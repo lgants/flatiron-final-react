@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 import { Link } from 'react-router';
 
 
-function BookList(props){
+export default function BookList(props){
   return (
     <div className="col-lg-4 col-md-4 col-sm-4">
       <div id="book-list-container" className="panel panel-default">
@@ -28,12 +28,3 @@ function BookList(props){
     </div>
   )
 }
-
-function mapStateToProps(state){
-  return {
-    books: state.books
-  }
-}
-
-const componentCreator = connect(mapStateToProps)
-export default componentCreator(BookList);

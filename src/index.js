@@ -14,6 +14,8 @@ import rootReducer from './reducers';
 
 import { fetchBooks } from './actions/book_actions'
 
+import FontAwesome from 'react-fontawesome'
+
 const store = createStore(rootReducer, applyMiddleware(ReduxPromise));
 
 store.dispatch( fetchBooks() );

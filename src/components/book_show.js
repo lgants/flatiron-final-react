@@ -49,7 +49,7 @@ function mapStateToProps(state, ownProps) {
     const book = state.books.find((book) => {return book.id == ownProps.params.bookId})
     return {book: book}
   } else {
-    return {book: {title: '', description: '', chapters: [{title: ''}]}}
+    return {book: {title: '', description: '', chapters: [{title: '', description: ''}]}}
   }
 }
 

@@ -36,3 +36,8 @@ form {
   width: 100%;
   position: relative;
 }
+
+.vote-container {
+  font-size: 20px;
+  text-align: center;
+}
