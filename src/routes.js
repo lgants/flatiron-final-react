@@ -15,6 +15,7 @@ import App from './components/app';
 
 export default (
   <Route path="/" component={App} >
+    <IndexRoute component={BookContainer}/>
     <Route path="/books" component={BookContainer}>
       <Route path="/books/welcome" component={ BookWelcome } />
       <Route path="/books/new" component={ BookNew } />
