@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import { Link } from 'react-router';
 
 
-function BookList(props){
+export default function BookList(props){
   return (
     <div className="col-lg-4 col-md-4 col-sm-4">
       <div id="book-list-container" className="panel panel-default">
@@ -28,15 +28,3 @@ function BookList(props){
     </div>
   )
 }
-
-function mapStateToProps(state){
-  if (state.books.length > 0) {
-      return {books: state.books}
-    } else {
-      return {books: [{title: '', description: '', chapters: [{title: ''}]}]}
-    }
-  }
-
-
-const componentCreator = connect(mapStateToProps)
-export default componentCreator(BookList);
