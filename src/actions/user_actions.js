@@ -9,7 +9,6 @@ export function logIn(usercreds){
   }).then(response => {
     return response.json()
   }).then(jwtTokenFromPayload => {
-    debugger
     sessionStorage.setItem('jwt', jwtTokenFromPayload.jwt)
     sessionStorage.setItem('currentUserId', jwtTokenFromPayload.currentUserId)
     return jwtTokenFromPayload
