@@ -17,17 +17,32 @@ class ChapterNew extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.newChapterHandler}>
-          <h2>What's Your Chapter?</h2>
-          <input placeholder="title" ref='title' /><br/>
-          <input placeholder="description" ref='description' /><br/>
-
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form>
+      <div className='col-sm-8 col-md-8 col-lg-8' >
+        <div id="book-show-container" className="panel panel-default">
+          <div className="panel-body">
+            <form onSubmit={this.newChapterHandler}>
+              <h2>Create New Chapter</h2>
+              <div className="form-group">
+                <label>Title:</label>
+                <input type="text" className="form-control" placeholder="title" ref='title' />
+              </div>
+              <div className="form-group">
+                <label>Description:</label>
+                <textarea className="form-control" placeholder="description" ref='description' />
+              </div>
+              <button type="submit" className="btn btn-default btn-block">Submit</button>
+            </form>
+          </div>
+        </div>
       </div>
-    )
-  }
+    )}
+
+
+
+
+  
+
+
 }
 
 function mapDispatchToProps(dispatch) {

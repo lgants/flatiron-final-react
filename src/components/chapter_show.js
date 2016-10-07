@@ -2,6 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
 
+import 'font-awesome/css/font-awesome.css'
+
 
 const ChapterShow = function(props){
   return (
@@ -17,7 +19,16 @@ const ChapterShow = function(props){
               {props.chapter.snippets.map((snippet) =>
                 <li className="list-group-item">
                   <Link to={`/books/${props.book.id}/chapters/${props.chapter.id}/snippets/${snippet.id}`}>
-                    <h4 className="list-group-item-heading">{snippet.content}</h4>
+                    <div className="row vote-container">
+                      <div className="col-md-1">
+                        <span className="glyphicon glyphicon-triangle-top col-md-12"></span>
+                        <span className="col-md-12">0</span>
+                        <span className="glyphicon glyphicon-triangle-bottom col-md-12"></span>
+                      </div>
+                      <div className="col-md-11">
+                        <h4 className="list-group-item-heading">{snippet.content}</h4>
+                      </div>
+                    </div>
                   </Link>
                 </li>
               )}
