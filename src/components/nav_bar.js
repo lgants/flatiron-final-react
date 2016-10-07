@@ -10,6 +10,7 @@ export default function NavBar(props){
       <div className="collapse navbar-collapse">
         <ul className="nav navbar-nav">
           <li><Link to={"/books"} className='navbar-item'> Books </Link></li>
+          <li><Link to={"/login"} className='navbar-item'> Log In </Link></li>
         </ul>
       </div>
     </nav>

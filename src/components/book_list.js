@@ -30,10 +30,13 @@ function BookList(props){
 }
 
 function mapStateToProps(state){
-  return {
-    books: state.books
+  if (state.books.length > 0) {
+      return {books: state.books}
+    } else {
+      return {books: [{title: '', description: '', chapters: [{title: ''}]}]}
+    }
   }
-}
+
 
 const componentCreator = connect(mapStateToProps)
 export default componentCreator(BookList);

@@ -3,6 +3,7 @@ import {Route, Redirect, IndexRoute} from 'react-router';
 
 import BookContainer from './components/book_container'
 import BookWelcome from './components/book_welcome'
+import LogIn from './components/log_in'
 import BookNew from './components/book_new'
 import BookShow from './components/book_show'
 
@@ -11,11 +12,13 @@ import ChapterNew from './components/chapter_new'
 import ChapterShow from './components/chapter_show'
 import SnippetNew from './components/snippet_new'
 
+
 import App from './components/app';
 
 export default (
   <Route path="/" component={App} >
     <IndexRoute component={BookContainer}/>
+    <Route path='/login' component={LogIn} />
     <Route path="/books" component={BookContainer}>
       <Route path="/books/welcome" component={ BookWelcome } />
       <Route path="/books/new" component={ BookNew } />
