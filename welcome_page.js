@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 
 export default function BookWelcome(props){
@@ -32,16 +34,15 @@ export default function BookWelcome(props){
   }
 
   var welcome = {
-    color: "white",
-    textAlign: "left",
+    opacity: "1",
+    textAlign: "center",
     margin: "auto",
-    width: "100%",
+    width: "50%",
   }
 
   return (
-    <div>
-      <div style={background}>
-        <div style={layer} />
+    <div style={background}>
+      <div style={layer}>
         <div style={welcome}>
           <h1>WELCOME</h1>
         </div>

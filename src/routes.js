@@ -15,12 +15,11 @@ import App from './components/app';
 
 export default (
   <Route path="/" component={App} >
-    <IndexRoute component={BookContainer}/>
-    <Route path="/books" component={BookContainer}>
-      <Route path="/books/welcome" component={ BookWelcome } />
+    <IndexRoute component={ BookWelcome } />
+    <Route path="/books" component={ BookContainer }>
       <Route path="/books/new" component={ BookNew } />
       <Route path="/books/:bookId" component={BookShow}/>
-    </Route>
+      </Route>
     <Route path="/books/:bookId/chapters" component={ChapterContainer} >
       <Route path="new" component={ ChapterNew } />
       <Route path=":chapterId" component={ChapterShow} />
