@@ -12,14 +12,13 @@ class VoteChapter extends React.Component {
 
   voteHandlerUp(event){
     event.preventDefault()
-    this.props.actions.voteUp({email: this.refs.email.value, chapter_id: this.refs.password.value})
-    this.props.actions.voteDown({email: this.refs.email.value, chapter_id: this.refs.password.value})
+    debugger
+    this.props.actions.voteChapter({user_id: sessionStorage.currentUserId, chapter_id: this.props.chapter.id, vote_choice: "1"})
   }
 
   voteHandlerDown(event){
     event.preventDefault()
-    this.props.actions.voteUp({email: this.refs.email.value, chapter: this.refs.password.value})
-    this.props.actions.voteDown({email: this.refs.email.value, password: this.refs.password.value})
+    this.props.actions.voteChapter({user_id: sessionStorage.currentUserId, chapter_id: this.props.chapter.id, vote_choice: "-1"})
   }
 
 
@@ -35,13 +34,13 @@ class VoteChapter extends React.Component {
 }
 
 
-function mapStateToProps(state, ownProps) {
-  return {actions: bindActionCreators(actions, dispatch)}
-}
+// function mapStateToProps(state, ownProps) {
+//   return {actions: bindActionCreators(actions, dispatch)}
+// }
 
 function mapDispatchToProps(dispatch) {
   return {actions: bindActionCreators(actions, dispatch)}
 }
 
-const componentCreator = connect(mapStateToProps, mapDispatchToProps)
+const componentCreator = connect(null, mapDispatchToProps)
 export default componentCreator(VoteChapter);
