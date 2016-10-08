@@ -14,11 +14,13 @@ export function fetchBooks(){
 }
 
 export function addBook(newBookFromForm) {
+  debugger
   const newBookFromApi = fetch('http://localhost:3000/api/v1/books', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${sessionStorage.jwt}`
     },
     body: JSON.stringify({book: newBookFromForm})
   }).then(response => {
@@ -35,7 +37,8 @@ export function deleteBook(deleteBook) {
     method: 'DELETE',
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${sessionStorage.jwt}`
     },
   }).then(response => {
     return response.json()
