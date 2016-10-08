@@ -4,6 +4,7 @@ import {Link} from 'react-router';
 
 import 'font-awesome/css/font-awesome.css'
 
+import VoteChapter from './vote_chapter';
 
 const ChapterShow = function(props){
   return (
@@ -21,9 +22,7 @@ const ChapterShow = function(props){
                   <Link to={`/books/${props.book.id}/chapters/${props.chapter.id}/snippets/${snippet.id}`}>
                     <div className="row vote-container">
                       <div className="col-md-1">
-                        <span className="glyphicon glyphicon-triangle-top col-md-12"></span>
-                        <span className="col-md-12">0</span>
-                        <span className="glyphicon glyphicon-triangle-bottom col-md-12"></span>
+                        // insert vote tally here
                       </div>
                       <div className="col-md-11">
                         <h4 className="list-group-item-heading">{snippet.content}</h4>

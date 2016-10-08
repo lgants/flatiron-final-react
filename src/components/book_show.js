@@ -4,6 +4,8 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
 import { Link, browserHistory } from 'react-router';
 
+import VoteChapter from './vote_chapter';
+
 class BookShow extends React.Component {
   constructor(props) {
     super(props)
@@ -30,10 +32,19 @@ class BookShow extends React.Component {
               <div className="panel-heading">Chapters</div>
               <ul id="chapter-scroll-list-group" className="list-group">
                 {this.props.book.chapters.map((chapter) =>
-                  <Link to={`/books/${this.props.book.id}/chapters/${chapter.id}`}><li className="list-group-item">
-                    <h4 className="list-group-item-heading">{chapter.title}</h4>
-                    <p className="list-group-item-text">{chapter.description.length > 120 ? `${chapter.description.slice(0, 120)}...` : `${chapter.description}`}</p>
-                  </li></Link>
+                  <li className="list-group-item">
+                    <div className="row vote-container">
+                      <div className="col-md-1">
+                        <VoteChapter chapter={chapter}/>
+                      </div>
+                      <Link to={`/books/${this.props.book.id}/chapters/${chapter.id}`}>
+                        <div className="col-md-11">
+                          <h4 className="list-group-item-heading">{chapter.title}</h4>
+                          <p className="list-group-item-text">{chapter.description.length > 120 ? `${chapter.description.slice(0, 120)}...` : `${chapter.description}`}</p>
+                        </div>
+                      </Link>
+                    </div>
+                  </li>
                 )}
               </ul>
             </div>
