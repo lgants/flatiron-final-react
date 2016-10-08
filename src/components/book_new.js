@@ -13,7 +13,7 @@ class BookNew extends React.Component {
     event.preventDefault()
     // how to associate the currentUser to author
     // currentUser?
-    const newBook = {title: this.refs.title.value, genre: this.refs.genre.value, description: this.refs.description.value}
+    const newBook = {title: this.refs.title.value, genre: this.refs.genre.value, description: this.refs.description.value, author_id: sessionStorage.currentUserId}
     this.props.actions.addBook(newBook)
   }
 

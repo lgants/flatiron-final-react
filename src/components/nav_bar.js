@@ -11,7 +11,6 @@ export default class NavBar extends React.Component {
 
   logOut(event) {
     sessionStorage.removeItem('jwt')
-
   }
 
   render() {

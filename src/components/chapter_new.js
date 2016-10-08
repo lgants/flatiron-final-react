@@ -11,7 +11,7 @@ class ChapterNew extends React.Component {
 
   newChapterHandler(event) {
     event.preventDefault()
-    const newChapter = {title: this.refs.title.value, description: this.refs.description.value, book_id: this.props.book.id }
+    const newChapter = {title: this.refs.title.value, description: this.refs.description.value, book_id: this.props.book.id, author_id: sessionStorage.currentUserId }
     this.props.actions.addChapter(newChapter)
   }
 
@@ -40,7 +40,7 @@ class ChapterNew extends React.Component {
 
 
 
-  
+
 
 
 }
