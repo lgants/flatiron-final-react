@@ -1,5 +1,6 @@
+
+
 import React from 'react';
-import {Link} from 'react-router';
 
 export default function BookWelcome(props){
 
@@ -24,7 +25,7 @@ export default function BookWelcome(props){
 
   var layer = {
     backgroundColor: "black",
-    opacity: "0.6",
+    opacity: "0.5",
     position: "fixed",
     top: "50",
     right: "0",
@@ -33,21 +34,17 @@ export default function BookWelcome(props){
   }
 
   var welcome = {
-    position: "relative",
-    color: "white",
+    opacity: "1",
     textAlign: "center",
-    margin: "auto"
+    margin: "auto",
+    width: "50%",
   }
 
   return (
-    <div>
-      <div style={background}>
-        <div style={layer} />
+    <div style={background}>
+      <div style={layer}>
         <div style={welcome}>
-          <h1>Welcome to CollaborWrite!</h1>
-          <h3>A social book writing platform.</h3><br/><br/>
-          <p>Find a book you're into and add a snippet! Vote on other people's contributions and be a part of creating a book!</p>
-          <Link to={'/login'}><h3>Click here to Login!</h3></Link>
+          <h1>WELCOME</h1>
         </div>
       </div>
     </div>

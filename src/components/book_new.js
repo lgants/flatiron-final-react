@@ -3,8 +3,6 @@ import * as actions from '../actions/book_actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
 
-
-
 class BookNew extends React.Component {
   constructor(props) {
     super(props)
