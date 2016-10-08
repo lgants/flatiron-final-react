@@ -1,11 +1,9 @@
-
 export function addChapter(newChapterFromForm) {
   const newChapterFromApi = fetch('http://localhost:3000/api/v1/chapters', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${sessionStorage.jwt}`
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify({chapter: newChapterFromForm})
   }).then(response => {
@@ -22,8 +20,7 @@ export function addSnippet(newSnippetFromForm){
     method: 'POST',
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${sessionStorage.jwt}`
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify({snippet: newSnippetFromForm})
   }).then(response => {
@@ -33,4 +30,14 @@ export function addSnippet(newSnippetFromForm){
   })
 
   return {type: 'ADD_SNIPPET', payload: newSnippetFromAPI }
+}
+
+
+
+export function voteUp(voteSelection){
+
+}
+
+export function voteDown(voteSelection){
+
 }
