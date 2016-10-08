@@ -4,7 +4,8 @@ export function addChapter(newChapterFromForm) {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${sessionStorage.jwt}`
     },
     body: JSON.stringify({chapter: newChapterFromForm})
   }).then(response => {
@@ -21,7 +22,8 @@ export function addSnippet(newSnippetFromForm){
     method: 'POST',
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${sessionStorage.jwt}`
     },
     body: JSON.stringify({snippet: newSnippetFromForm})
   }).then(response => {
