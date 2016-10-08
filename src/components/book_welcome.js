@@ -24,7 +24,7 @@ export default function BookWelcome(props){
 
   var layer = {
     backgroundColor: "black",
-    opacity: "0.6",
+    opacity: "0.4",
     position: "fixed",
     top: "50",
     right: "0",
