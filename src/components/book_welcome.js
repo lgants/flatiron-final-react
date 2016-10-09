@@ -35,8 +35,10 @@ export default function BookWelcome(props){
 
   var welcome = {
     position: "absolute",
+    fontFamily: "Montserrat",
     transform: "translateY(-50%)",
     color: "white",
+    textShadow: "2px 2px gray",
     textAlign: "center",
     paddingRight: "250px",
     paddingLeft: "250px",
