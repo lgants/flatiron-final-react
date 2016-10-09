@@ -12,7 +12,7 @@ class SnippetNew extends React.Component {
 
   newSnippetHandler(event) {
     event.preventDefault()
-    const newSnippet = {content: this.refs.content.value, approved: false, chapter_id: this.props.params.chapterId }
+    const newSnippet = {content: this.refs.content.value, approved: false, chapter_id: this.props.params.chapterId, author_id: sessionStorage.currentUserId }
     const bookId = this.props.params.bookId
     this.props.actions.addSnippet(newSnippet)
     browserHistory.push(`/books/${this.props.params.bookId}/chapters/${this.props.params.chapterId}`)

@@ -14,7 +14,6 @@ export function fetchBooks(){
 }
 
 export function addBook(newBookFromForm) {
-  debugger
   const newBookFromApi = fetch('http://localhost:3000/api/v1/books', {
     method: 'POST',
     headers: {
