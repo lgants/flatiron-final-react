@@ -6,7 +6,7 @@ export default function booksReducer(state=[], action) {
   case 'FETCH_BOOKS':
       return action.payload;
   case 'ADD_BOOK':
-    return [...state, action.payload]
+    return [action.payload, ...state]
   case 'DELETE_BOOK':
     const bookToDelete = state.find((book) => book.id == action.payload.id)
     const stateForDelete = [...state]
