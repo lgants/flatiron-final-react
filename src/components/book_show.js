@@ -35,7 +35,7 @@ class BookShow extends React.Component {
                   <li className="list-group-item">
                     <div className="row vote-container">
                       <div className="col-md-1">
-                        <VoteChapter chapter={chapter}/>
+                        <VoteChapter/>
                       </div>
                       <Link to={`/books/${this.props.book.id}/chapters/${chapter.id}`}>
                         <div className="col-md-11">

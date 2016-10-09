@@ -16,12 +16,14 @@ class VoteChapter extends React.Component {
   }
 
   voteHandlerDown(event){
+    debugger
     event.preventDefault()
     this.props.actions.voteChapter({user_id: sessionStorage.currentUserId, chapter_id: this.props.chapter.id, vote_choice: "-1"})
   }
 
 
   render(){
+    debugger
     return (
       <div className="col-md-1">
         <button onClick={this.voteHandlerUp}><span className="glyphicon glyphicon-triangle-top col-md-12"></span></button>
@@ -34,6 +36,7 @@ class VoteChapter extends React.Component {
 
 
 function mapStateToProps(state, ownProps) {
+  debugger
   if (state.votes.length > 0) {
     const chapterVotes = state.votes.find((chapter)=> chapter.chapterId == ownProps.chapter.id)
     return {chapterVotes: chapterVotes}
