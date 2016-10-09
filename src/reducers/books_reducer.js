@@ -3,15 +3,10 @@ export default function booksReducer(state=[], action) {
 
   case 'FETCH_BOOKS':
       return action.payload;
+
   case 'ADD_BOOK':
     return [...state, action.payload]
-  case 'DELETE_BOOK':
-  debugger
-    const bookToDelete = state.find((book) => book.id == action.payload.id)
-    const stateForDelete = [...state]
-    const indexOfDelete = stateForDelete.indexOf(bookToDelete)
-    stateForDelete.splice(indexOfDelete, 1);
-    return stateForDelete
+
   case 'ADD_CHAPTER':
     const book = state.find((book) => book.id == action.payload.book_id)
     const copyState = [...state]
@@ -21,6 +16,14 @@ export default function booksReducer(state=[], action) {
     copyBook.chapters.push(action.payload)
     copyState.push(copyBook)
     return copyState
+
+  case 'DELETE_BOOK':
+    const bookToDelete = state.find((book) => book.id == action.payload.id)
+    const stateForDelete = [...state]
+    const indexOfDelete = stateForDelete.indexOf(bookToDelete)
+    stateForDelete.splice(indexOfDelete, 1);
+    return stateForDelete
+    
   case 'ADD_SNIPPET':
     const snippetBook = state.find((book) => book.chapters.find((chapter) => chapter.id == action.payload.chapter_id))
     const snippetCopyState = [...state]

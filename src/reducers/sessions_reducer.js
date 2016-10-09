@@ -1,7 +1,7 @@
 import {browserHistory} from 'react-router'
 
 
-export default function sessionReducer(state=[], action) {
+export default function sessionsReducer(state=[], action) {
   switch (action.type) {
     case 'LOG_IN_SUCCESS':
     browserHistory.push('/books')
