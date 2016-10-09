@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import * as actions from '../actions/chapter_actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
+
 
 class ChapterNew extends React.Component {
   constructor(props) {
@@ -13,6 +15,7 @@ class ChapterNew extends React.Component {
     event.preventDefault()
     const newChapter = {title: this.refs.title.value, description: this.refs.description.value, book_id: this.props.book.id, author_id: sessionStorage.currentUserId }
     this.props.actions.addChapter(newChapter)
+    browserHistory.push(`/books/${this.props.book.id}`)
   }
 
   render() {

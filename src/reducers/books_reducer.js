@@ -1,3 +1,5 @@
+import { browserHistory } from 'react-router';
+
 export default function booksReducer(state=[], action) {
   switch ( action.type ) {
 
@@ -6,7 +8,6 @@ export default function booksReducer(state=[], action) {
   case 'ADD_BOOK':
     return [...state, action.payload]
   case 'DELETE_BOOK':
-  debugger
     const bookToDelete = state.find((book) => book.id == action.payload.id)
     const stateForDelete = [...state]
     const indexOfDelete = stateForDelete.indexOf(bookToDelete)

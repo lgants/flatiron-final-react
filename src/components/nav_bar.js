@@ -31,5 +31,3 @@ export default class NavBar extends React.Component {
     )
   }
 }
-
-{sessionStorage.getItem('jwt') ? <a href="/login" onClick={this.logOut}>Log Out</a> : <Link to="/login">Log In</Link>}
