@@ -25,7 +25,6 @@ class BookShow extends React.Component {
           <div className="panel-body">
             <h2>{this.props.book.title}</h2>
             <h4>{this.props.book.description}</h4>
-            <button className="btn btn-default btn-block" onClick={this.deleteBookHandler}>Delete Book </button>
             <br />
             <br />
             <div className="panel panel-default">

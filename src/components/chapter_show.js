@@ -40,14 +40,14 @@ class ChapterShow extends React.Component {
                         </div>
                         <div className="col-md-11">
                           <h4 className="list-group-item-heading">{snippet.content}</h4>
-                          {sessionStorage.currentUserId == snippet.author_id ? <button id={snippet.id} onClick={this.deleteSnippetHandler}>Delete Snippet</button> : null}
+                          {sessionStorage.currentUserId == snippet.author_id ? <button id={snippet.id} onClick={this.deleteSnippetHandler}><span className="fa fa-trash" /></button> : null}
                         </div>
                       </div>
                     </Link>
                   </li>
                 )}
               </ul>
-              <Link to={`/books/${this.props.book.id}/chapters/${this.props.chapter.id}/snippets/new`}>Add a Snippet!</Link>
+              <Link to={`/books/${this.props.book.id}/chapters/${this.props.chapter.id}/snippets/new`}  className="btn btn-default btn-block">Add a Snippet!</Link>
             </div>
           </div>
         </div>

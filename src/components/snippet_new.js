@@ -20,16 +20,21 @@ class SnippetNew extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.newSnippetHandler}>
-          <h2>What's Your Snippet?</h2>
-          <textarea placeholder="content" ref='content' /><br/>
-          <button type="submit" className="btn btn-default">Submit</button>
-        </form>
-      </div>
-    )
-  }
-}
+      <div className='col-sm-8 col-md-8 col-lg-8' >
+        <div id="book-show-container" className="panel panel-default">
+          <div className="panel-body">
+            <form onSubmit={this.newSnippetHandler}>
+              <h2>What's Your Snippet?</h2>
+              <div className="form-group">
+                <textarea className="form-control" placeholder="content" ref='content' />
+              </div>
+              <button type="submit" className="btn btn-default">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
+    }
 
 function mapDispatchToProps(dispatch) {
   return {actions: bindActionCreators(actions, dispatch)}
