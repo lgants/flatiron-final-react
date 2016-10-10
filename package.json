@@ -52,6 +52,7 @@
   "dependencies": {
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
+    "react-fa": "^4.1.2",
     "react-fa-icon": "^0.1.4",
     "react-fontawesome": "^1.2.0",
     "react-redux": "^4.4.5",
