@@ -19,6 +19,12 @@ class ChapterShow extends React.Component {
   }
 
   render() {
+
+    var notApproved = {
+      backgroundColor: "#ffffcc"
+    }
+
+    debugger
     return (
       <div className='col-sm-8 col-md-8 col-lg-8' >
         <div id="book-show-container" className="panel panel-default">
@@ -30,7 +36,7 @@ class ChapterShow extends React.Component {
               <div className="panel-heading">Snippets</div>
               <ul id="chapter-scroll-list-group" className="list-group">
                 {this.props.chapter.snippets.map((snippet) =>
-                  <li className="list-group-item">
+                  <li style= {snippet.approved ? null : notApproved } className="list-group-item">
                     <Link to={`/books/${this.props.book.id}/chapters/${this.props.chapter.id}/snippets/${snippet.id}`}>
                       <div className="row vote-container">
                         <div className="col-md-1">

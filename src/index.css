@@ -32,7 +32,7 @@ form {
 /*added to support chapter scroll*/
 #chapter-scroll-list-group {
   overflow-y: scroll;
-  max-height: 150px;
+  max-height: 280px;
   width: 100%;
   position: relative;
 }
