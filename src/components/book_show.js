@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import * as actions from '../actions/book_actions'
+import * as bookActions from '../actions/book_actions'
+import * as voteActions from '../actions/vote_actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
 import { Link, browserHistory } from 'react-router';
@@ -14,7 +15,7 @@ class BookShow extends React.Component {
 
   deleteBookHandler(event) {
     const deleteBook = this.props.book
-    this.props.actions.deleteBook(deleteBook)
+    this.props.actions.bookActions.deleteBook(deleteBook)
     browserHistory.push('/books')
   }
 
@@ -55,7 +56,7 @@ class BookShow extends React.Component {
 }
 
 function mapStateToProps(state, ownProps) {
-  if (state.books.length > 0) {
+  if (state.books.length > 0 && state.books.find((book) => {return book.id == ownProps.params.bookId})) {
     const book = state.books.find((book) => {return book.id == ownProps.params.bookId})
     return {book: book}
   } else {
@@ -64,7 +65,12 @@ function mapStateToProps(state, ownProps) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return {actions: bindActionCreators(actions, dispatch)}
+  return {
+    actions: {
+      bookActions: bindActionCreators(bookActions, dispatch),
+      voteActions: bindActionCreators(voteActions, dispatch)
+      }
+    }
 }
 
 const componentCreator = connect(mapStateToProps, mapDispatchToProps)
