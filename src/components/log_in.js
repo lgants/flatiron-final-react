@@ -14,7 +14,6 @@ class LogIn  extends React.Component {
     this.props.actions.logIn({email: this.refs.email.value, password: this.refs.password.value})
   }
 
-
   render(){
     return (
       <div className='col-sm-8 col-md-8 col-lg-8' >

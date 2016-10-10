@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import * as actions from '../actions/book_actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
-
+import { browserHistory } from 'react-router';
 
 
 class BookNew extends React.Component {
@@ -13,10 +13,9 @@ class BookNew extends React.Component {
 
   newBookHandler(event) {
     event.preventDefault()
-    // how to associate the currentUser to author
-    // currentUser?
-    const newBook = {title: this.refs.title.value, genre: this.refs.genre.value, description: this.refs.description.value}
+    const newBook = {title: this.refs.title.value, genre: this.refs.genre.value, description: this.refs.description.value, author_id: sessionStorage.currentUserId}
     this.props.actions.addBook(newBook)
+    browserHistory.push(`/books/`)
   }
 
   render() {
