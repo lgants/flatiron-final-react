@@ -4,8 +4,6 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
 import { Link, browserHistory } from 'react-router';
 
-import 'font-awesome/css/font-awesome.css'
-
 import VoteChapter from './vote_chapter';
 
 class ChapterShow extends React.Component {
