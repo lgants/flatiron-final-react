@@ -53,7 +53,6 @@ export function deleteSnippet(deleteSnippetId) {
 
 
 export function voteChapter(newVote){
-  debugger
   const voteFromAPI = fetch('http://localhost:3000/api/v1/chapter_vote', {
     method: 'POST',
     headers: {

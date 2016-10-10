@@ -19,6 +19,7 @@ const store = createStore(rootReducer, applyMiddleware(ReduxPromise));
 
 store.dispatch( fetchBooks() );
 
+
 ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory} routes={routes} />
