@@ -6,7 +6,7 @@ export default function votesReducer(state=[], action) {
       const copyState = [...state]
       const index = copyState.indexOf(chapterVote)
       copyState.splice(index, 1)
-      const data = {chapterId: action.payload.user_chapter.chapter_id, vote_total: action.payload.vote_total}
+      const data = {chapterId: action.payload.user_chapter.chapter_id, total: action.payload.vote_total}
       copyState.push(data)
       return copyState
 

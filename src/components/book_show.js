@@ -36,7 +36,7 @@ class BookShow extends React.Component {
                   <li className="list-group-item">
                     <div className="row vote-container">
                       <div className="col-md-1">
-                        <VoteChapter chapter={chapter}/>
+                        <VoteChapter chapter={chapter} book={this.props.book}/>
                       </div>
                       <Link to={`/books/${this.props.book.id}/chapters/${chapter.id}`}>
                         <div className="col-md-11">
@@ -57,7 +57,7 @@ class BookShow extends React.Component {
 }
 
 function mapStateToProps(state, ownProps) {
-  if (state.books.length > 0) {
+  if (state.books.length > 0 && state.books.find((book) => {return book.id == ownProps.params.bookId})) {
     const book = state.books.find((book) => {return book.id == ownProps.params.bookId})
     return {book: book}
   } else {

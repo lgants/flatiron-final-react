@@ -10,5 +10,5 @@ This project showcases the collaborators knowledge of key concepts like:
 
 * Rails API backend
 * React/Redux frontend
-* HTML/CSS in conjuction with Bootstrap
+* HTML/CSS in conjunction with Bootstrap
 * RESTful conventions

@@ -2,11 +2,13 @@ import React from 'react';
 import * as actions from '../actions/vote_actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
 
 class VoteChapter extends React.Component {
 
   constructor(props){
     super(props)
+    this.state = {total: this.props.chapterVotes.total}
     this.voteHandlerUp = this.voteHandlerUp.bind(this)
     this.voteHandlerDown = this.voteHandlerDown.bind(this)
   }
@@ -21,6 +23,7 @@ class VoteChapter extends React.Component {
   }
 
   voteHandlerDown(event){
+    debugger
     event.preventDefault()
     this.props.actions.voteChapter({user_id: sessionStorage.currentUserId, chapter_id: this.props.chapter.id, vote_choice: "-1"})
   }
