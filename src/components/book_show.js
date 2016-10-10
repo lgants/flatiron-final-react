@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as bookActions from '../actions/book_actions'
 import * as voteActions from '../actions/vote_actions'
+import * as chapterActions from '../actions/chapter_actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
 import { Link, browserHistory } from 'react-router';
@@ -11,12 +12,19 @@ class BookShow extends React.Component {
   constructor(props) {
     super(props)
     this.deleteBookHandler = this.deleteBookHandler.bind(this)
+    this.approveChapterHandler = this.approveChapterHandler.bind(this)
   }
 
   deleteBookHandler(event) {
     const deleteBook = this.props.book
     this.props.actions.bookActions.deleteBook(deleteBook)
     browserHistory.push('/books')
+  }
+
+  approveChapterHandler(event) {
+    const approveChapterId = event.target.id
+    this.props.actions.chapterActions.approveChapter(approveChapterId)
+    browserHistory.push(`/books/${this.props.book.id}`)
   }
 
   render() {
@@ -43,6 +51,9 @@ class BookShow extends React.Component {
                           <p className="list-group-item-text">{chapter.description.length > 120 ? `${chapter.description.slice(0, 120)}...` : `${chapter.description}`}</p>
                         </div>
                       </Link>
+                      <div className="col-lg-10 col-md-10 col-sm-10" > 
+                        {((sessionStorage.currentUserId == this.props.book.author_id) && (chapter.approved == false)) ? <button className="btn btn-success" id={chapter.id} onClick={this.approveChapterHandler}>Approve Chapter</button> : null}
+                      </div>
                     </div>
                   </li>
                 )}
@@ -68,7 +79,8 @@ function mapDispatchToProps(dispatch) {
   return {
     actions: {
       bookActions: bindActionCreators(bookActions, dispatch),
-      voteActions: bindActionCreators(voteActions, dispatch)
+      voteActions: bindActionCreators(voteActions, dispatch),
+      chapterActions: bindActionCreators(chapterActions,dispatch)
       }
     }
 }
