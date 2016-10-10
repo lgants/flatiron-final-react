@@ -2,8 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
 
-import 'font-awesome/css/font-awesome.css'
-
 import VoteChapter from './vote_chapter';
 
 const ChapterShow = function(props){

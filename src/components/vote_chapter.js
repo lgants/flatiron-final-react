@@ -3,6 +3,9 @@ import * as actions from '../actions/chapter_actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
+import {Icon} from 'react-fa'
+
+
 class VoteChapter extends React.Component {
   constructor(props){
     super(props)
@@ -24,11 +27,23 @@ class VoteChapter extends React.Component {
 
   render(){
     return (
-      <div className="col-md-1">
-        <button onClick={this.voteHandlerUp}><span className="glyphicon glyphicon-triangle-top col-md-12"></span></button>
-        <span className="col-md-12">{this.props.vote}</span>
-        <button onClick={this.voteHandlerDown}><span className="glyphicon glyphicon-triangle-bottom col-md-12"></span></button>
-      </div>
+      <div>
+        <div className="row">
+          <div className="col-lg-12 col-md-12 col-sm-12">
+            <button onClick={this.voteHandlerUp} className="btn btn-md btn-default custom-btn-md"><Icon name="caret-up" /></button>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-lg-12 col-md-12 col-sm-12">
+            <center><span className="col-md-12">1</span></center>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-lg-12 col-md-12 col-sm-12">
+            <button onClick={this.voteHandlerDown} className="btn btn-md btn-default custom-btn-md"><Icon name="caret-down" /></button>
+          </div>
+        </div>
+    </div>
     )
   }
 }
