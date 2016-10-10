@@ -51,6 +51,23 @@ export function deleteSnippet(deleteSnippetId) {
   return {type: 'DELETE_SNIPPET', payload: deleteSnippetId}
 }
 
+export function approveSnippet(approveSnippetId) {
+  const snippetFromApi = fetch(`http://localhost:3000/api/v1/snippets/${approveSnippetId}`, {
+    method: 'PATCH',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${sessionStorage.jwt}`
+    },
+  }).then(response => {
+    return response.json()
+  }).then(error => {
+    return error
+  })
+
+  return {type: 'APPROVE_SNIPPET', payload: approveSnippetId}
+}
+
 
 export function voteChapter(newVote){
   debugger
