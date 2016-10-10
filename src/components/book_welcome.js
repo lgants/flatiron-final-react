@@ -23,8 +23,9 @@ export default function BookWelcome(props){
 
 
   var layer = {
+    position: "relative",
     backgroundColor: "black",
-    opacity: "0.6",
+    opacity: "0.4",
     position: "fixed",
     top: "50",
     right: "0",
@@ -33,10 +34,29 @@ export default function BookWelcome(props){
   }
 
   var welcome = {
-    position: "relative",
+    position: "absolute",
+    fontFamily: "Montserrat",
+    transform: "translateY(-50%)",
     color: "white",
+    textShadow: "2px 2px gray",
     textAlign: "center",
-    margin: "auto"
+    paddingRight: "250px",
+    paddingLeft: "250px",
+    top: "50%"
+  }
+
+  var introLeadIn = {
+    fontStyle: "bold",
+    fontSize: "60px",
+  }
+
+  var introHeading = {
+    fontStyle: "italic",
+    fontSize: "40px"
+  }
+
+  var introParagraph = {
+    fontSize: "20px"
   }
 
   return (
@@ -44,10 +64,12 @@ export default function BookWelcome(props){
       <div style={background}>
         <div style={layer} />
         <div style={welcome}>
-          <h1>Welcome to CollaborWrite!</h1>
-          <h3>A social book writing platform.</h3><br/><br/>
-          <p>Find a book you're into and add a snippet! Vote on other people's contributions and be a part of creating a book!</p>
-          <Link to={'/login'}><h3>Click here to Login!</h3></Link>
+          <div style={introLeadIn}>Welcome to CollaborWrite!</div>
+          <div style={introHeading}>A social book writing platform.</div><br/><br/>
+          <div style={introParagraph}>Find a book you're into and add a snippet!
+            Vote on other people's contributions and be a part of creating a book!</div><br/>
+          <Link className="btn btn-success" style={introParagraph} to={'/login'}>Click here to Login</Link><br/><br/>
+          <Link className="btn btn-primary" style={introParagraph} to={'/signup'}>Click here to SignUp</Link>
         </div>
       </div>
     </div>

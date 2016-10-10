@@ -7,7 +7,7 @@ export default function ChapterList(props){
     <div className="col-lg-4 col-md-4 col-sm-4">
       <div id="book-list-container" className="panel panel-default">
         <div className="panel-body">
-          <Link to={`/books/${props.book.id}/chapters/new`} className="btn btn-default btn-block">Add a chapter :)</Link>
+          <Link to={`/books/${props.book.id}/chapters/new`} className="btn btn-default btn-block">Add a chapter!</Link>
           <br />
           <div className="panel panel-default">
             <div className="panel-heading">Chapters</div>

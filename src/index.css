@@ -41,3 +41,10 @@ form {
   font-size: 20px;
   text-align: center;
 }
+
+/*added to support smaller button size*/
+.custom-btn-md {
+    padding: 4px 8px;
+    font-size: 7px;
+    border-radius: 2px;
+}
