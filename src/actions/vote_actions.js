@@ -1,3 +1,17 @@
+export function fetchChapterVotes(){
+  const chapterVotes = fetch('http://localhost:3000/api/v1/user_chapters', {
+    headers: {"Authorization": `Bearer ${sessionStorage.jwt}`}
+  }).then(response => {
+    return response.json()
+  }).then(chapterVotesPayload => {
+    return chapterVotesPayload
+  })
+  return {
+    type: 'FETCH_CHAPTER_VOTES',
+    payload: chapterVotes
+  }
+}
+
 export function voteChapter(newVote){
   const voteFromAPI = fetch('http://localhost:3000/api/v1/chapter_vote', {
     method: 'POST',

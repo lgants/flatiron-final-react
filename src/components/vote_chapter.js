@@ -4,10 +4,15 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 class VoteChapter extends React.Component {
+
   constructor(props){
     super(props)
     this.voteHandlerUp = this.voteHandlerUp.bind(this)
     this.voteHandlerDown = this.voteHandlerDown.bind(this)
+  }
+
+  componentWillMount(nextProps, nextState){
+    this.props.actions.fetchChapterVotes()
   }
 
   voteHandlerUp(event){
@@ -16,18 +21,16 @@ class VoteChapter extends React.Component {
   }
 
   voteHandlerDown(event){
-    debugger
     event.preventDefault()
     this.props.actions.voteChapter({user_id: sessionStorage.currentUserId, chapter_id: this.props.chapter.id, vote_choice: "-1"})
   }
 
 
   render(){
-    debugger
     return (
       <div className="col-md-1">
         <button onClick={this.voteHandlerUp}><span className="glyphicon glyphicon-triangle-top col-md-12"></span></button>
-        <span className="col-md-12">{this.props.chapterVotes.vote_total}</span>
+        <span className="col-md-12">{this.props.chapterVotes.total}</span>
         <button onClick={this.voteHandlerDown}><span className="glyphicon glyphicon-triangle-bottom col-md-12"></span></button>
       </div>
     )
@@ -36,12 +39,11 @@ class VoteChapter extends React.Component {
 
 
 function mapStateToProps(state, ownProps) {
-  debugger
-  if (state.votes.length > 0) {
+  if (state.votes.length > 0 && state.votes.find((chapter)=> chapter.chapterId == ownProps.chapter.id)) {
     const chapterVotes = state.votes.find((chapter)=> chapter.chapterId == ownProps.chapter.id)
     return {chapterVotes: chapterVotes}
   } else {
-    return {chapterVotes: {chapterId:"", vote_total: 0}}
+    return {chapterVotes: {chapterId:"", total: 0}}
   }
 }
 

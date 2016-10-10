@@ -13,6 +13,7 @@ import ReduxPromise from 'redux-promise'
 import rootReducer from './reducers';
 
 import { fetchBooks } from './actions/book_actions'
+import { fetchChapterVotes } from './actions/vote_actions'
 
 import FontAwesome from 'react-fontawesome'
 

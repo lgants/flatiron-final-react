@@ -8,11 +8,13 @@ export default function votesReducer(state=[], action) {
       copyState.splice(index, 1)
       const data = {chapterId: action.payload.user_chapter.chapter_id, vote_total: action.payload.vote_total}
       copyState.push(data)
-      debugger
-      
       return copyState
 
       // indicate that the user has voted up or down
+
+    case 'FETCH_CHAPTER_VOTES':
+    return action.payload
+
 
     default:
       return state;
