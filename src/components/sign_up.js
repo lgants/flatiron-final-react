@@ -16,7 +16,7 @@ class SignUp  extends React.Component {
 
   render(){
     return (
-      <div className='col-sm-8 col-md-8 col-lg-8' >
+      <div className='col-sm-6 col-md-6 col-lg-6 col-sm-offset-3 col-md-offset-3 col-lg-offset-3'>
         <div id="log-in-form" className="panel panel-default">
           <div className="panel-body">
             <form onSubmit={this.signUpHandler}>

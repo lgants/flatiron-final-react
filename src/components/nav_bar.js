@@ -14,8 +14,13 @@ export default class NavBar extends React.Component {
   }
 
   render() {
+
+    var navBarColor = {
+      backgroundColor: "#add8e6",
+    }
+
     return (
-      <nav className='navbar navbar-inverse'>
+      <nav className='navbar navbar-dark' style={navBarColor}>
         <div className='navbar-header'>
           <Link to={"/books"} className='navbar-brand'> Collabowrite </Link>
         </div>
