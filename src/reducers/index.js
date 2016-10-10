@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
-import booksReducer from './books_reducer';
-import sessionReducer from './session_reducer'
+import booksReducer from './books_reducer'
+import votesReducer from './votes_reducer'
+import sessionsReducer from './sessions_reducer'
 
 const rootReducer =  combineReducers({
   books: booksReducer,
-  session: sessionReducer
+  votes: votesReducer,
+  session: sessionsReducer
 });
 
 export default rootReducer;

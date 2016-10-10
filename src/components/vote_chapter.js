@@ -1,25 +1,32 @@
 import React from 'react';
-import * as actions from '../actions/chapter_actions';
+import * as actions from '../actions/vote_actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
 
 import {Icon} from 'react-fa'
 
 
 class VoteChapter extends React.Component {
+
   constructor(props){
     super(props)
+    this.state = {total: this.props.chapterVotes.total}
     this.voteHandlerUp = this.voteHandlerUp.bind(this)
     this.voteHandlerDown = this.voteHandlerDown.bind(this)
   }
 
+  componentWillMount(nextProps, nextState){
+    this.props.actions.fetchChapterVotes()
+  }
+
   voteHandlerUp(event){
     event.preventDefault()
-    debugger
     this.props.actions.voteChapter({user_id: sessionStorage.currentUserId, chapter_id: this.props.chapter.id, vote_choice: "1"})
   }
 
   voteHandlerDown(event){
+    debugger
     event.preventDefault()
     this.props.actions.voteChapter({user_id: sessionStorage.currentUserId, chapter_id: this.props.chapter.id, vote_choice: "-1"})
   }
@@ -35,7 +42,7 @@ class VoteChapter extends React.Component {
         </div>
         <div className="row">
           <div className="col-lg-12 col-md-12 col-sm-12">
-            <center><span className="col-md-12">1</span></center>
+            <center><span className="col-md-12">{this.props.chapterVotes.total}</span></center>
           </div>
         </div>
         <div className="row">
@@ -49,13 +56,18 @@ class VoteChapter extends React.Component {
 }
 
 
-// function mapStateToProps(state, ownProps) {
-//   return {actions: bindActionCreators(actions, dispatch)}
-// }
+function mapStateToProps(state, ownProps) {
+  if (state.votes.length > 0 && state.votes.find((chapter)=> chapter.chapterId == ownProps.chapter.id)) {
+    const chapterVotes = state.votes.find((chapter)=> chapter.chapterId == ownProps.chapter.id)
+    return {chapterVotes: chapterVotes}
+  } else {
+    return {chapterVotes: {chapterId:"", total: 0}}
+  }
+}
 
 function mapDispatchToProps(dispatch) {
   return {actions: bindActionCreators(actions, dispatch)}
 }
 
-const componentCreator = connect(null, mapDispatchToProps)
+const componentCreator = connect(mapStateToProps, mapDispatchToProps)
 export default componentCreator(VoteChapter);

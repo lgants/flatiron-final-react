@@ -2,11 +2,6 @@ import React from 'react';
 import {Link} from 'react-router';
 
 
-
-
-
-
-
 export default function ChapterList(props){
   return (
     <div className="col-lg-4 col-md-4 col-sm-4">
