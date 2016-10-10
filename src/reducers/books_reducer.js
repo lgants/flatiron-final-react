@@ -39,7 +39,17 @@ export default function booksReducer(state=[], action) {
     copySnippetBook.chapters.push(copySnippetChapter)
     snippetCopyState.push(copySnippetBook)
     return snippetCopyState
-    
+
+  case 'APPROVE_SNIPPET':
+    const stateForApproveSnippet = [...state]
+    const snippetsBookToApprove = state.find((book) => book.chapters.find((chapter) => chapter.snippets.find((snippet) => snippet.id == action.payload)))
+    const snippetsBookToApproveIndex = stateForApproveSnippet.indexOf(snippetsBookToApprove)
+    const snippetsChapterToApprove = stateForApproveSnippet[snippetsBookToApproveIndex].chapters.find((chapter) => chapter.snippets.find((snippet) => snippet.id == action.payload))
+    const snippetsChapterToApproveIndex = stateForApproveSnippet[snippetsBookToApproveIndex].chapters.indexOf(snippetsChapterToApprove)
+    const snippetToApprove = stateForApproveSnippet[snippetsBookToApproveIndex].chapters[snippetsChapterToApproveIndex].snippets.find((snippet) => snippet.id == action.payload)
+    snippetToApprove.approved = true
+    return stateForApproveSnippet
+
   case 'DELETE_SNIPPET':
     const snippetsBookToDelete = state.find((book) => book.chapters.find((chapter) => chapter.snippets.find((snippet) => snippet.id == action.payload)))
     const stateForDeleteSnippet = [...state]
@@ -50,6 +60,7 @@ export default function booksReducer(state=[], action) {
     const snippetToDeleteIndex = stateForDeleteSnippet[snippetsBookToDeleteIndex].chapters[snippetsChapterToDeleteIndex].snippets.indexOf(snippetToDelete)
     stateForDeleteSnippet[snippetsBookToDeleteIndex].chapters[snippetsChapterToDeleteIndex].snippets.splice(snippetToDeleteIndex, 1);
     return stateForDeleteSnippet
+
   default:
     return state;
   }
