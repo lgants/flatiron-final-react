@@ -4,6 +4,7 @@ import {Route, Redirect, IndexRoute} from 'react-router';
 import BookContainer from './components/book_container'
 import BookWelcome from './components/book_welcome'
 import LogIn from './components/log_in'
+import SignUp from './components/sign_up'
 import BookNew from './components/book_new'
 import BookShow from './components/book_show'
 
@@ -19,6 +20,7 @@ export default (
   <Route path="/" component={App} >
     <IndexRoute component={ BookWelcome } />
     <Route path='/login' component={LogIn} />
+    <Route path='/signup' component={SignUp} />
     <Route path="/books" component={ BookContainer } onEnter={requireAuth}>
       <Route path="/books/new" component={ BookNew } />
       <Route path="/books/:bookId" component={ BookShow }/>
@@ -34,7 +36,7 @@ export default (
 function requireAuth(nextState, replace) {
   if (!sessionStorage.getItem('jwt')) {
     replace({
-      pathname: '/login',
+      pathname: '/',
       state: { nextPathname: nextState.location.pathname }
     })
   }
