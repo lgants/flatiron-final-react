@@ -26,7 +26,6 @@ class VoteChapter extends React.Component {
   }
 
   voteHandlerDown(event){
-    debugger
     event.preventDefault()
     this.props.actions.voteChapter({user_id: sessionStorage.currentUserId, chapter_id: this.props.chapter.id, vote_choice: "-1"})
   }

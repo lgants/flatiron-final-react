@@ -4,8 +4,6 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
 import { Link, browserHistory } from 'react-router';
 
-import VoteChapter from './vote_chapter';
-
 class ChapterShow extends React.Component {
   constructor(props) {
     super(props)
@@ -31,17 +29,16 @@ class ChapterShow extends React.Component {
               <ul id="chapter-scroll-list-group" className="list-group">
                 {this.props.chapter.snippets.map((snippet) =>
                   <li className="list-group-item">
-                    <Link to={`/books/${this.props.book.id}/chapters/${this.props.chapter.id}/snippets/${snippet.id}`}>
-                      <div className="row vote-container">
-                        <div className="col-md-1">
-                          {/*insert vote tally here*/}
-                        </div>
-                        <div className="col-md-11">
+                    <div className="row">
+                      <div className="col-lg-2 col-md-2 col-sm-2 vote-container">
+                      </div>
+                      <Link to={`/books/${this.props.book.id}/chapters/${this.props.chapter.id}/snippets/${snippet.id}`}>
+                        <div className="col-lg-10 col-md-10 col-sm-10">
                           <h4 className="list-group-item-heading">{snippet.content}</h4>
                           {sessionStorage.currentUserId == snippet.author_id ? <button id={snippet.id} onClick={this.deleteSnippetHandler}><span className="fa fa-trash" /></button> : null}
                         </div>
-                      </div>
-                    </Link>
+                      </Link>
+                    </div>
                   </li>
                 )}
               </ul>

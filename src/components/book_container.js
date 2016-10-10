@@ -13,19 +13,29 @@ class BookContainer extends React.Component {
   render () {
     return (
       <div className='col-md-12'>
-          <BookList books={this.props.books}/>
+          <BookList books={this.props.books} linkHead={this.props.location.pathname}/>
           {this.props.children}
       </div>
     )
   }
 }
 
-function mapStateToProps(state){
+function mapStateToProps(state, ownProps){
   if (state.books.length > 0) {
-      return {books: state.books}
+    if (ownProps.location.pathname == "/library"){
+      const completeBooks = state.books.filter((book) => {
+        return book.complete == true;
+      });
+      return {books: completeBooks}
     } else {
-      return {books: [{title: '', description: '', chapters: [{title: ''}]}]}
+      const incompleteBooks = state.books.filter((book) => {
+        return book.complete == true;
+      });
+      return {books: incompleteBooks}
     }
+  } else {
+    return {books: [{title: '', description: '', chapters: [{title: ''}]}]}
+  }
 }
 
 function mapDispatchToProps(dispatch) {
