@@ -42,8 +42,12 @@ class BookShow extends React.Component {
                 {this.props.book.chapters.map((chapter) =>
                   <li className="list-group-item">
                     <div className="row">
+                      {/*YOU CAN'T VOTE ON APPROVED CHAPTERS*/}
                       <div className="col-lg-2 col-md-2 col-sm-2 vote-container">
+                      {(chapter.approved) ?
+                        <span className="fa fa-check"/> :
                         <VoteChapter chapter={chapter} book={this.props.book}/>
+                      }
                       </div>
                       <Link to={`/books/${this.props.book.id}/chapters/${chapter.id}`}>
                         <div className="col-lg-10 col-md-10 col-sm-10">
@@ -51,7 +55,7 @@ class BookShow extends React.Component {
                           <p className="list-group-item-text">{chapter.description.length > 120 ? `${chapter.description.slice(0, 120)}...` : `${chapter.description}`}</p>
                         </div>
                       </Link>
-                      <div className="col-lg-10 col-md-10 col-sm-10" > 
+                      <div className="col-lg-10 col-md-10 col-sm-10" >
                         {((sessionStorage.currentUserId == this.props.book.author_id) && (chapter.approved == false)) ? <button className="btn btn-success" id={chapter.id} onClick={this.approveChapterHandler}>Approve Chapter</button> : null}
                       </div>
                     </div>
