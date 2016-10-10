@@ -9,6 +9,12 @@ export default function sessionReducer(state=[], action) {
       } else {
         browserHistory.push('/books')
       }
+    case 'SIGN_UP_SUCCESS':
+      if (sessionStorage.jwt == "undefined") {
+        browserHistory.push('/signup')
+      } else {
+        browserHistory.push('/books')
+      }
     default:
     return state
   }
