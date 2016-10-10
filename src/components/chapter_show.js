@@ -4,8 +4,6 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
 import { Link, browserHistory } from 'react-router';
 
-import VoteChapter from './vote_chapter';
-
 class ChapterShow extends React.Component {
   constructor(props) {
     super(props)
@@ -46,17 +44,17 @@ class ChapterShow extends React.Component {
                     {/* THIS LINK IS FOR A SNIPPET SHOW PAGE THAT WE MAY INCLUDE IN NEW VERSIONS
                       <Link to={`/books/${this.props.book.id}/chapters/${this.props.chapter.id}/snippets/${snippet.id}`}>
                     */}
-                      <div className="row vote-container">
-                        <div className="col-md-1">
-                          {/*insert vote tally here*/}
-                        </div>
-                        <div className="col-md-11">
-                          <h4 className="list-group-item-heading">{snippet.content}</h4>
-                          {((sessionStorage.currentUserId == snippet.author_id) && (snippet.approved == false)) ? <button className="btn btn-danger" id={snippet.id} onClick={this.deleteSnippetHandler}><span id={snippet.id} className="fa fa-trash"/></button> : null}
-                          <span>  </span>
-                          {((sessionStorage.currentUserId == this.props.book.author_id) && (snippet.approved == false)) ? <button className="btn btn-success" id={snippet.id} onClick={this.approveSnippetHandler}>Approve Snippet</button> : null}
-                        </div>
+                    <div className="row">
+                      <div className="col-lg-2 col-md-2 col-sm-2 vote-container">
+                        <p>Vote Goes Here</p>
                       </div>
+                      <div className="col-lg-10 col-md-10 col-sm-10">
+                        <h4 className="list-group-item-heading">{snippet.content}</h4>
+                        {((sessionStorage.currentUserId == snippet.author_id) && (snippet.approved == false)) ? <button className="btn btn-danger" id={snippet.id} onClick={this.deleteSnippetHandler}><span id={snippet.id} className="fa fa-trash"/></button> : null}
+                        <span>  </span>
+                        {((sessionStorage.currentUserId == this.props.book.author_id) && (snippet.approved == false)) ? <button className="btn btn-success" id={snippet.id} onClick={this.approveSnippetHandler}>Approve Snippet</button> : null}
+                      </div>
+                    </div>
                     {/* </Link> */}
                   </li>
                 )}
