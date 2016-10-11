@@ -7,8 +7,7 @@ export default function ChapterList(props){
     <div className="col-lg-4 col-md-4 col-sm-4">
       <div id="book-list-container" className="panel panel-default">
         <div className="panel-body">
-          <h3>{props.book.title}</h3>
-          <Link to={`/books/${props.book.id}`}>Back</Link>
+          <span><h3><Link to={`/books/${props.book.id}`}><span className="fa fa-arrow-left"/></Link>  {props.book.title}</h3></span>
           <Link to={`/books/${props.book.id}/chapters/new`} className="btn btn-default btn-block">Add a chapter!</Link>
           <br />
           <div className="panel panel-default">
@@ -23,8 +22,6 @@ export default function ChapterList(props){
                 </li>
               )}
             </ul>
-
-
           </div>
         </div>
       </div>

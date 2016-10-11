@@ -24,7 +24,7 @@ form {
 /*added to support book scroll*/
 #book-scroll-list-group {
   overflow-y: scroll;
-  height: 370px;
+  height: 320px;
   width: 100%;
   position: relative;
 }
@@ -48,3 +48,9 @@ form {
     font-size: 7px;
     border-radius: 2px;
 }
+
+body {
+   background: #f3f3f3;
+   padding: 0;
+   margin: 0;
+ }
