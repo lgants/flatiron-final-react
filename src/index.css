@@ -24,7 +24,7 @@ form {
 /*added to support book scroll*/
 #book-scroll-list-group {
   overflow-y: scroll;
-  height: 370px;
+  height: 320px;
   width: 100%;
   position: relative;
 }
