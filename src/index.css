@@ -48,3 +48,9 @@ form {
     font-size: 7px;
     border-radius: 2px;
 }
+
+body {
+   background: #f3f3f3;
+   padding: 0;
+   margin: 0;
+ }
