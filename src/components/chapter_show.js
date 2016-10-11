@@ -44,7 +44,7 @@ class ChapterShow extends React.Component {
                     {/* THIS LINK IS FOR A SNIPPET SHOW PAGE THAT WE MAY INCLUDE IN NEW VERSIONS
                       <Link to={`/books/${this.props.book.id}/chapters/${this.props.chapter.id}/snippets/${snippet.id}`}>
                     */}
-                    <div className="row">
+                    <div className="row" >
                       <div className="col-lg-2 col-md-2 col-sm-2 vote-container">
                         {/*<p>Vote Goes Here</p>*/}
                       </div>
