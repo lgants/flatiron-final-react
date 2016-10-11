@@ -7,6 +7,7 @@ import LogIn from './components/log_in'
 import SignUp from './components/sign_up'
 import BookNew from './components/book_new'
 import BookShow from './components/book_show'
+import FinalBookShow from './components/final_book_show'
 
 import ChapterContainer from './components/chapter_container'
 import ChapterNew from './components/chapter_new'
@@ -21,6 +22,9 @@ export default (
     <IndexRoute component={ BookWelcome } />
     <Route path='/login' component={LogIn} />
     <Route path='/signup' component={SignUp} />
+    <Route path="/library" component={ BookContainer } onEnter={requireAuth}>
+      <Route path='/library/:bookId' component={FinalBookShow} />
+    </Route >
     <Route path="/books" component={ BookContainer } onEnter={requireAuth}>
       <Route path="/books/new" component={ BookNew } />
       <Route path="/books/:bookId" component={ BookShow }/>
