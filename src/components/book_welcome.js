@@ -64,7 +64,7 @@ export default function BookWelcome(props){
       <div style={background}>
         <div style={layer} />
         <div style={welcome}>
-          <div style={introLeadIn}>Welcome to CollaborWrite!</div>
+          <div style={introLeadIn}>Welcome to CollaboWrite!</div>
           <div style={introHeading}>A social book writing platform.</div><br/><br/>
           <div style={introParagraph}>Find a book you're into and add a snippet!
             Vote on other people's contributions and be a part of creating a book!</div><br/>
