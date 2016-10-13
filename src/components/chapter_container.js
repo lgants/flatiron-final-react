@@ -8,14 +8,12 @@ import ChapterShow from './chapter_show'
 
 class ChapterContainer extends React.Component{
 
-
   render(){
     const childrenWithProps = React.Children.map(this.props.children,
  (child) => React.cloneElement(child, {
    book: this.props.book
     })
   );
-
     return (
       <div className='col-md-12'>
           <ChapterList book={this.props.book} />
@@ -24,7 +22,6 @@ class ChapterContainer extends React.Component{
     );
   }
 }
-
 
   function mapStateToProps(state, ownProps) {
    if (state.books.length > 0) {

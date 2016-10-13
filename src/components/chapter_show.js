@@ -3,6 +3,7 @@ import * as actions from '../actions/chapter_actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
 import { Link, browserHistory } from 'react-router';
+import VoteSnippet from './vote_snippet';
 
 class ChapterShow extends React.Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class ChapterShow extends React.Component {
     this.deleteSnippetHandler = this.deleteSnippetHandler.bind(this)
     this.approveSnippetHandler = this.approveSnippetHandler.bind(this)
   }
+
 
   deleteSnippetHandler(event) {
     const deleteSnippetId = event.target.id
@@ -44,9 +46,13 @@ class ChapterShow extends React.Component {
                     {/* THIS LINK IS FOR A SNIPPET SHOW PAGE THAT WE MAY INCLUDE IN NEW VERSIONS
                       <Link to={`/books/${this.props.book.id}/chapters/${this.props.chapter.id}/snippets/${snippet.id}`}>
                     */}
+
                     <div className="row" >
                       <div className="col-lg-2 col-md-2 col-sm-2 vote-container">
-                        {/*<p>Vote Goes Here</p>*/}
+                        {(snippet.approved) ?
+                          <span className="fa fa-check"/> :
+                            <VoteSnippet snippet={snippet} chapter={this.props.chapter}/>
+                        }
                       </div>
                       <div className="col-lg-10 col-md-10 col-sm-10">
                         <h4 className="list-group-item-heading">{snippet.content}</h4>
