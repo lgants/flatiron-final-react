@@ -11,6 +11,7 @@ export function logIn(usercreds){
   }).then(jwtTokenFromPayload => {
     sessionStorage.setItem('jwt', jwtTokenFromPayload.jwt)
     sessionStorage.setItem('currentUserId', jwtTokenFromPayload.currentUserId)
+    sessionStorage.setItem('currentUserName', jwtTokenFromPayload.currentUserName)
     return jwtTokenFromPayload
   })
 

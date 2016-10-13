@@ -25,6 +25,9 @@ export default (
     <Route path="/library" component={ BookContainer } onEnter={requireAuth}>
       <Route path='/library/:bookId' component={FinalBookShow} />
     </Route >
+    <Route path="/mybooks" component={ BookContainer } onEnter={requireAuth}>
+      <Route path='/mybooks/:bookId' component={BookShow} />
+    </Route>
     <Route path="/books" component={ BookContainer } onEnter={requireAuth}>
       <Route path="/books/new" component={ BookNew } />
       <Route path="/books/:bookId" component={ BookShow }/>

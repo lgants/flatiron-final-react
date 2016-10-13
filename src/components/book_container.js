@@ -22,12 +22,19 @@ class BookContainer extends React.Component {
 
 function mapStateToProps(state, ownProps){
   if (state.books.length > 0) {
-    if (ownProps.location.pathname == "/library"){
+
+    if (!!ownProps.location.pathname.match(/\/library/)){
       const completeBooks = state.books.filter((book) => {
         return book.complete == true;
       });
       return {books: completeBooks}
+    } else if (!!ownProps.location.pathname.match(/\/mybooks/)){
+      const myBooks = state.books.filter((book) => {
+        return book.author_id == sessionStorage.currentUserId;
+      });
+      return {books: myBooks}
     } else {
+      console.log(ownProps.location.pathname)
       const incompleteBooks = state.books.filter((book) => {
         return book.complete == false;
       });
