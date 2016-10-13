@@ -62,6 +62,7 @@ class BookShow extends React.Component {
                   </li>
                 )}
               </ul>
+              <Link to={`/books/${this.props.book.id}/chapters/new`}  className="btn btn-default btn-block">Add a Chapter!</Link>
             </div>
           </div>
         </div>
