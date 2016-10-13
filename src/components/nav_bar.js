@@ -11,6 +11,7 @@ export default class NavBar extends React.Component {
 
   logOut(event) {
     sessionStorage.removeItem('jwt')
+    sessionStorage.removeItem('currentUserName')
   }
 
   render() {
@@ -25,11 +26,17 @@ export default class NavBar extends React.Component {
           <Link to={"/books"} className='navbar-brand'> Collabowrite </Link>
         </div>
         <div className="collapse navbar-collapse">
-          <ul className="nav navbar-nav">
-            <li><Link to={"/books"} className='navbar-item'> Drafts </Link></li>
+          <ul className="nav navbar-nav navbar-left">
+            <li><Link to={"/books"} className='navbar-item'> Pending </Link></li>
             <li><Link to={"/library"} className='navbar-item'> Complete </Link></li>
+            <li><Link to={"/mybooks"} className='navbar-item'> My Books </Link></li>
+          </ul>
+          <ul className="nav navbar-nav navbar-right">
             <li>
-              {sessionStorage.getItem('jwt') ? <a href="/login" onClick={this.logOut}>Log Out</a> : <Link to={"/login"} className='navbar-item'> Log In </Link>}
+              {sessionStorage.getItem('currentUserName') ? <p className="navbar-text">Hi {sessionStorage.getItem('currentUserName')}!</p> : null }
+            </li>
+            <li>
+              {sessionStorage.getItem('jwt') ? <Link to={"/login"} onClick={this.logOut}>Log Out</Link> : <Link to={"/login"} className='navbar-item'> Log In </Link>}
             </li>
           </ul>
         </div>
