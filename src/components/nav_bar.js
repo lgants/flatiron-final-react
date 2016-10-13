@@ -27,7 +27,7 @@ export default class NavBar extends React.Component {
         </div>
         <div className="collapse navbar-collapse">
           <ul className="nav navbar-nav navbar-left">
-            <li><Link to={"/books"} className='navbar-item'> Pending </Link></li>
+            <li><Link to={"/books"} className='navbar-item'> Drafts </Link></li>
             <li><Link to={"/library"} className='navbar-item'> Complete </Link></li>
             <li><Link to={"/mybooks"} className='navbar-item'> My Books </Link></li>
           </ul>
