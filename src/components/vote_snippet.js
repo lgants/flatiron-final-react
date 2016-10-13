@@ -59,7 +59,6 @@ class VoteSnippet extends React.Component {
 
 
 function mapStateToProps(state, ownProps) {
-  debugger
   if (state.snippetVotes.length > 0 && state.snippetVotes.find((snippet)=> snippet.snippetId == ownProps.snippet.id)) {
     const snippetVotes = state.snippetVotes.find((snippet)=> snippet.snippetId == ownProps.snippet.id)
     return {snippetVotes: snippetVotes}

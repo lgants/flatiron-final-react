@@ -18,26 +18,27 @@ class FinalBookShow extends React.Component {
   // }
 
   render() {
-    return (
 
-      <div className='col-sm-8 col-md-8 col-lg-8' >
-        <div id="book-show-container" className="panel panel-default">
-          <div className="panel-body">
-            <h2>{this.props.book.title}</h2>
-            <h4>{this.props.book.description}</h4>
-            <br />
-            <div>
-              {this.props.book.chapters.map((chapter) =>
-                <div>
-                  {chapter.snippets.map((snippet) =>
-                    <p>{snippet.content}</p>
-                  )}
-                </div>
-              )}
+    return (
+        <div className='col-sm-8 col-md-8 col-lg-8' >
+          <div id="book-show-container" className="panel panel-default">
+            <div className="panel-body">
+              <h2>{this.props.book.title}</h2>
+              <h4>{this.props.book.description}</h4>
+              <br />
+              <div>
+                {this.props.book.chapters.map((chapter) =>
+                  <div>
+                    <h4>{chapter.title}</h4>
+                    {chapter.snippets.map((snippet) =>
+                      <p>{snippet.content}</p>
+                    )}
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
-      </div>
     )
   }
 }

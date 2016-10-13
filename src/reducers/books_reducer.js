@@ -31,6 +31,7 @@ export default function booksReducer(state=[], action) {
     const chaptersBookToApprove = state.find((book) => book.chapters.find((chapter) => chapter.id == action.payload))
     const chaptersBookToApproveIndex = stateForApproveChapter.indexOf(chaptersBookToApprove)
     const chapterToApprove = stateForApproveChapter[chaptersBookToApproveIndex].chapters.find((chapter) => chapter.id == action.payload)
+    chapterToApprove.snippets.map((snippet)=>snippet.approved = true)
     chapterToApprove.approved = true
     return stateForApproveChapter
 

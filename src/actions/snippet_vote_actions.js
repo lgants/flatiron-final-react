@@ -1,5 +1,4 @@
 export function fetchSnippetVotes(){
-  debugger
   const snippetVotes = fetch('http://localhost:3000/api/v1/user_snippets', {
     headers: {"Authorization": `Bearer ${sessionStorage.jwt}`}
   }).then(response => {
@@ -14,7 +13,6 @@ export function fetchSnippetVotes(){
 }
 
 export function voteSnippet(newVote){
-  debugger
   const snippetVoteFromAPI = fetch('http://localhost:3000/api/v1/snippet_vote', {
     method: 'POST',
     headers: {
