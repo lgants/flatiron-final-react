@@ -12,17 +12,17 @@ class BookContainer extends React.Component {
   }
   render () {
     return (
-      <div className='col-md-12'>
-          <BookList books={this.props.books} linkHead={this.props.location.pathname.split("/")[1]}/>
-          {this.props.children}
-      </div>
+        <div className='col-md-12'>
+            <BookList books={this.props.books} linkHead={this.props.location.pathname.split("/")[1]}/>
+            {this.props.children}
+        </div>
     )
   }
 }
 
 function mapStateToProps(state, ownProps){
   if (state.books.length > 0) {
-    if (ownProps.location.pathname == "/library"){
+    if (ownProps.location.pathname.split("/")[1] == "library"){
       const completeBooks = state.books.filter((book) => {
         return book.complete == true;
       });
