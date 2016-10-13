@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import * as bookActions from '../actions/book_actions'
-import * as voteActions from '../actions/vote_actions'
+import * as chapterVoteActions from '../actions/chapter_vote_actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';

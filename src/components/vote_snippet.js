@@ -1,5 +1,5 @@
 import React from 'react';
-import * as actions from '../actions/chapter_vote_actions';
+import * as actions from '../actions/snippet_vote_actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
@@ -7,7 +7,7 @@ import { browserHistory } from 'react-router';
 import {Icon} from 'react-fa'
 
 
-class VoteChapter extends React.Component {
+class VoteSnippet extends React.Component {
 
   constructor(props){
     super(props)
@@ -16,21 +16,21 @@ class VoteChapter extends React.Component {
   }
 
   componentWillMount(nextProps, nextState){
-    this.props.actions.fetchChapterVotes()
+    this.props.actions.fetchSnippetVotes()
   }
 
   shouldComponentUpdate(nextProps, nextState){
-    return (!!nextProps.chapterVotes.chapterId || this.props.book.id !== nextProps.book.id)
+    return (!!nextProps.snippetVotes.snippetId || this.props.chapter.id !== nextProps.chapter.id)
 }
 
   voteHandlerUp(event){
     event.preventDefault()
-    this.props.actions.voteChapter({user_id: sessionStorage.currentUserId, chapter_id: this.props.chapter.id, vote_choice: "1"})
+    this.props.actions.voteSnippet({user_id: sessionStorage.currentUserId, snippet_id: this.props.snippet.id, vote_choice: "1"})
   }
 
   voteHandlerDown(event){
     event.preventDefault()
-    this.props.actions.voteChapter({user_id: sessionStorage.currentUserId, chapter_id: this.props.chapter.id, vote_choice: "-1"})
+    this.props.actions.voteSnippet({user_id: sessionStorage.currentUserId, snippet_id: this.props.snippet.id, vote_choice: "-1"})
   }
 
 
@@ -44,7 +44,7 @@ class VoteChapter extends React.Component {
         </div>
         <div className="row">
           <div className="col-lg-12 col-md-12 col-sm-12">
-            <center><span className="col-md-12">{this.props.chapterVotes.total}</span></center>
+            <center><span className="col-md-12">{this.props.snippetVotes.total}</span></center>
           </div>
         </div>
         <div className="row">
@@ -59,11 +59,12 @@ class VoteChapter extends React.Component {
 
 
 function mapStateToProps(state, ownProps) {
-  if (state.chapterVotes.length > 0 && state.chapterVotes.find((chapter)=> chapter.chapterId == ownProps.chapter.id)) {
-    const chapterVotes = state.chapterVotes.find((chapter)=> chapter.chapterId == ownProps.chapter.id)
-    return {chapterVotes: chapterVotes}
+  debugger
+  if (state.snippetVotes.length > 0 && state.snippetVotes.find((snippet)=> snippet.snippetId == ownProps.snippet.id)) {
+    const snippetVotes = state.snippetVotes.find((snippet)=> snippet.snippetId == ownProps.snippet.id)
+    return {snippetVotes: snippetVotes}
   } else {
-    return {chapterVotes: {chapterId:"", total: 0}}
+    return {snippetVotes: {snippetId:"", total: 0}}
   }
 }
 
@@ -72,4 +73,4 @@ function mapDispatchToProps(dispatch) {
 }
 
 const componentCreator = connect(mapStateToProps, mapDispatchToProps)
-export default componentCreator(VoteChapter);
+export default componentCreator(VoteSnippet);

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import * as bookActions from '../actions/book_actions'
-import * as voteActions from '../actions/vote_actions'
+import * as chapterVoteActions from '../actions/chapter_vote_actions'
 import * as chapterActions from '../actions/chapter_actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
@@ -84,7 +84,7 @@ function mapDispatchToProps(dispatch) {
   return {
     actions: {
       bookActions: bindActionCreators(bookActions, dispatch),
-      voteActions: bindActionCreators(voteActions, dispatch),
+      chapterVoteActions: bindActionCreators(chapterVoteActions, dispatch),
       chapterActions: bindActionCreators(chapterActions,dispatch)
       }
     }
