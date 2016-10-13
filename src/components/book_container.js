@@ -21,8 +21,9 @@ class BookContainer extends React.Component {
 }
 
 function mapStateToProps(state, ownProps){
+  debugger
   if (state.books.length > 0) {
-    if (ownProps.location.pathname == "/library"){
+    if (ownProps.location.pathname.split("/")[1] == "library"){
       const completeBooks = state.books.filter((book) => {
         return book.complete == true;
       });
