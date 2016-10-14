@@ -1,5 +1,7 @@
+const databaseUrl = "https://lit-everglades-59361.herokuapp.com/api/v1/"
+
 export function logIn(usercreds){
-  const jwtToken = fetch('http://localhost:3000/api/v1/login', {
+  const jwtToken = fetch(`${databaseUrl}login`, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -21,7 +23,7 @@ export function logIn(usercreds){
 
 
 export function signUp(usercreds){
-  const jwtToken = fetch('http://localhost:3000/api/v1/users', {
+  const jwtToken = fetch(`${databaseUrl}users`, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
