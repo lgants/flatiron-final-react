@@ -1,4 +1,5 @@
-const databaseUrl = "https://lit-everglades-59361.herokuapp.com/api/v1/"
+// const databaseUrl = "https://lit-everglades-59361.herokuapp.com/api/v1/"
+const databaseUrl = 'localhost:3000/api/v1'
 
 export function addChapter(newChapterFromForm) {
   const newChapterFromApi = fetch(`${databaseUrl}chapters`, {
