@@ -1,5 +1,5 @@
 // const databaseUrl = "https://lit-everglades-59361.herokuapp.com/api/v1/"
-const databaseUrl = 'localhost:3000/api/v1'
+const databaseUrl = 'http://localhost:3000/api/v1'
 
 export function fetchSnippetVotes(){
   const snippetVotes = fetch(`${databaseUrl}user_snippets`, {
