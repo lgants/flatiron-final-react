@@ -1,5 +1,7 @@
+const databaseUrl = "https://lit-everglades-59361.herokuapp.com/api/v1/"
+
 export function fetchSnippetVotes(){
-  const snippetVotes = fetch('http://localhost:3000/api/v1/user_snippets', {
+  const snippetVotes = fetch(`${databaseUrl}user_snippets`, {
     headers: {"Authorization": `Bearer ${sessionStorage.jwt}`}
   }).then(response => {
     return response.json()
@@ -13,7 +15,7 @@ export function fetchSnippetVotes(){
 }
 
 export function voteSnippet(newVote){
-  const snippetVoteFromAPI = fetch('http://localhost:3000/api/v1/snippet_vote', {
+  const snippetVoteFromAPI = fetch(`${databaseUrl}snippet_vote`, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',

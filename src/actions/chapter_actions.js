@@ -1,5 +1,7 @@
+const databaseUrl = "https://lit-everglades-59361.herokuapp.com/api/v1/"
+
 export function addChapter(newChapterFromForm) {
-  const newChapterFromApi = fetch('http://localhost:3000/api/v1/chapters', {
+  const newChapterFromApi = fetch(`${databaseUrl}chapters`, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -17,7 +19,7 @@ export function addChapter(newChapterFromForm) {
 }
 
 export function approveChapter(approveChapterId) {
-  const chapterFromApi = fetch(`http://localhost:3000/api/v1/chapters/${approveChapterId}`, {
+  const chapterFromApi = fetch(`${databaseUrl}chapters/${approveChapterId}`, {
     method: 'PATCH',
     headers: {
       'Accept': 'application/json',
@@ -34,7 +36,7 @@ export function approveChapter(approveChapterId) {
 }
 
 export function addSnippet(newSnippetFromForm){
-  const newSnippetFromAPI = fetch('http://localhost:3000/api/v1/snippets', {
+  const newSnippetFromAPI = fetch(`${databaseUrl}snippets`, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -52,7 +54,7 @@ export function addSnippet(newSnippetFromForm){
 }
 
 export function deleteSnippet(deleteSnippetId) {
-  const snippetFromApi = fetch(`http://localhost:3000/api/v1/snippets/${deleteSnippetId}`, {
+  const snippetFromApi = fetch(`${databaseUrl}snippets/${deleteSnippetId}`, {
     method: 'DELETE',
     headers: {
       'Accept': 'application/json',
@@ -69,7 +71,7 @@ export function deleteSnippet(deleteSnippetId) {
 }
 
 export function approveSnippet(approveSnippetId) {
-  const snippetFromApi = fetch(`http://localhost:3000/api/v1/snippets/${approveSnippetId}`, {
+  const snippetFromApi = fetch(`${databaseUrl}snippets/${approveSnippetId}`, {
     method: 'PATCH',
     headers: {
       'Accept': 'application/json',
@@ -87,7 +89,7 @@ export function approveSnippet(approveSnippetId) {
 
 
 export function voteChapter(newVote){
-  const voteFromAPI = fetch('http://localhost:3000/api/v1/chapter_vote', {
+  const voteFromAPI = fetch(`${databaseUrl}chapter_vote`, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',

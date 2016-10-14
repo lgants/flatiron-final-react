@@ -1,5 +1,7 @@
+const databaseUrl = 'https://lit-everglades-59361.herokuapp.com/api/v1/'
+
 export function fetchBooks(){
-  const books = fetch('http://localhost:3000/api/v1/books', {
+  const books = fetch(`${databaseUrl}books`, {
     headers: {"Authorization": `Bearer ${sessionStorage.jwt}`}
   }).then(response => {
     return response.json()
@@ -14,7 +16,7 @@ export function fetchBooks(){
 }
 
 export function addBook(newBookFromForm) {
-  const newBookFromApi = fetch('http://localhost:3000/api/v1/books', {
+  const newBookFromApi = fetch(`${databaseUrl}books`, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -32,7 +34,7 @@ export function addBook(newBookFromForm) {
 }
 
 export function deleteBook(deleteBook) {
-  const bookFromApi = fetch(`http://localhost:3000/api/v1/books/${deleteBook.id}`, {
+  const bookFromApi = fetch(`${databaseUrl}books/${deleteBook.id}`, {
     method: 'DELETE',
     headers: {
       'Accept': 'application/json',
