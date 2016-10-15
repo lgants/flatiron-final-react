@@ -1,6 +1,6 @@
 # CollaboWrite
 
-## Our story is a collaborative book writing platform.
+## A collaborative, social book writing platform.
 
 A user can create a book with chapters and then other users can contribute snippets to write a chapter.
 
